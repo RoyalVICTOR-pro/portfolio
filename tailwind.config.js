@@ -15,6 +15,10 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -82,5 +86,26 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [function({ addComponents, theme }) {
+    addComponents({
+      '.h1': {
+        fontFamily: theme('fontFamily.heading'),
+        fontSize: theme('fontSize.4xl'),
+        fontWeight: theme('fontWeight.bold'),
+        lineHeight: theme('lineHeight.tight'),
+      },
+      '.h2': {
+        fontFamily: theme('fontFamily.heading'),
+        fontSize: theme('fontSize.3xl'),
+        fontWeight: theme('fontWeight.semibold'),
+        lineHeight: theme('lineHeight.tight'),
+      },
+      '.h3': {
+        fontFamily: theme('fontFamily.heading'),
+        fontSize: theme('fontSize.2xl'),
+        fontWeight: theme('fontWeight.medium'),
+        lineHeight: theme('lineHeight.snug'),
+      },
+    })
+  }, animate],
 }
