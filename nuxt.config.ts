@@ -8,13 +8,13 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
   ],
   colorMode: {
-    preference: 'light',
+    preference: 'dark',
   },
   shadcn: {
     /**
      * Prefix for all the imported component
      */
-    prefix: '',
+    prefix: 'Sn',
     /**
      * Directory that the component lives in.
      * @default "./components/ui"
