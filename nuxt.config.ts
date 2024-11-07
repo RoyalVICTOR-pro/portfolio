@@ -4,8 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/color-mode',
+    '@nuxt/ui',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
+    '@nuxt/image',
+    '@vueuse/motion/nuxt',
   ],
   colorMode: {
     preference: 'dark',
@@ -14,11 +17,11 @@ export default defineNuxtConfig({
     /**
      * Prefix for all the imported component
      */
-    prefix: 'Sn',
+    prefix: '',
     /**
      * Directory that the component lives in.
      * @default "./components/ui"
      */
-    componentDir: './components/ui'
-  }
+    componentDir: './components/ui',
+  },
 })

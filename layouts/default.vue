@@ -1,22 +1,22 @@
 <template>
   <div>
-    <NavigationHeader />
     <Background />
-    <slot />
+    <NavigationHeader class="max-w-7xl mx-auto" />
+    <div class="max-w-7xl mx-auto">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script setup>
-
 const colorMode = useColorMode()
-
-console.log(colorMode.preference)
+colorMode.preference = 'dark'
 </script>
 
 <style>
 body {
   background-color: #fff;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 .dark-mode body {
   background: linear-gradient(-45deg, #000000, #160202);
