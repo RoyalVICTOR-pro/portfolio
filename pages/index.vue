@@ -73,12 +73,6 @@
       </div>
       <PhotoRollover class="h-fit bg-slate-50 flex" />
     </div>
-    <!-- <UCard class="bg-[#120202] text-center text-2xl ring-transparent">
-      Un projet ? Une mission ? Une opportunité ?
-      <UButton color="primary" variant="solid" class="ml-4 text-xl"
-        >Contactez-moi</UButton
-      >
-    </UCard> -->
     <div class="flex flex-col w-full mx-auto items-center gap-8 mt-28">
       <h2 class="font-light text-2xl ml-1">Parcours</h2>
       <Stepper class="flex w-full items-start gap-2 mb-12" :defaultValue="5">
@@ -199,7 +193,7 @@
         à l’écoute des besoins utilisateurs et continuer à apprendre.
       </CollapsibleContent>
     </Collapsible> -->
-    <section>
+    <section class="flex flex-col items-center w-full mb-28">
       <h2 class="font-heading font-bold text-3xl text-center">
         Sélection de projets
       </h2>
@@ -216,9 +210,121 @@
           class="w-1/3"
         />
       </div>
-      <UButton class="mt-12" color="primary" variant="solid" to="/projets"
-        >Voir tous les projets</UButton
+      <UButton color="primary" variant="solid" to="/projets">
+        Voir tous les projets
+      </UButton>
+    </section>
+    <section class="mb-28">
+      <h2 class="font-heading font-bold text-3xl text-center mb-12">
+        Recommandations
+      </h2>
+      <Carousel
+        v-slot="{ canScrollNext }"
+        class="relative w-full max-w-2xl test1 mx-auto"
       >
+        <CarouselContent class="test2">
+          <CarouselItem class="test4">
+            <div class="p-1">
+              <UCard
+                class="bg-[#120202] text-white min-h-[320px]"
+                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+              >
+                <CardContent
+                  class="flex flex-col aspect-square items-center justify-center p-6"
+                  ><p class="mb-4">
+                    "... Royal est aussi à l'aise avec les clients qu'avec les
+                    développeurs. Il comprend les besoins et aide à les murir.
+                    Il sait les formaliser, connait les implications techniques
+                    et comprend le jargon des programmeurs. Selon mon expérience
+                    c'est très rare et tellement précieux !..."
+                  </p>
+                  <b>Julien Laurent</b>
+                  <i>Lead Développeur</i>
+                  <UButton
+                    color="gray"
+                    variant="solid"
+                    to="/recommandations"
+                    class="mt-4"
+                    >Lire toute la recommandation
+                  </UButton>
+                </CardContent>
+              </UCard>
+            </div>
+          </CarouselItem>
+          <CarouselItem class="">
+            <div class="p-1">
+              <UCard
+                class="bg-[#120202] text-white min-h-[320px]"
+                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+              >
+                <CardContent
+                  class="flex flex-col aspect-square items-center justify-center p-6"
+                >
+                  <p class="mb-4">
+                    "...travailler avec lui a toujours été un plaisir. Son
+                    attitude positive, son professionnalisme et son sens des
+                    relations humaines en font un collègue précieux.
+                    J’appréciais particulièrement d’échanger avec lui, ce qui
+                    nous a toujours permis de trouver des solutions à des
+                    problèmes complexes..."
+                  </p>
+                  <b>Stéphane Guillo</b>
+                  <i>Directeur opérationnel</i>
+                  <UButton
+                    color="gray"
+                    variant="solid"
+                    to="/recommandations"
+                    class="mt-4"
+                    >Lire toute la recommandation
+                  </UButton>
+                </CardContent>
+              </UCard>
+            </div>
+          </CarouselItem>
+          <CarouselItem class="">
+            <div class="p-1">
+              <UCard
+                class="bg-[#120202] text-white min-h-[320px]"
+                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+              >
+                <CardContent
+                  class="flex flex-col aspect-square items-center justify-center p-6"
+                >
+                  <p class="mb-4">
+                    "Partager des rendez-vous d'avant vente avec Royal a
+                    toujours été un grand plus pour le closing des dossiers
+                    digitaux : relation commerciale et contact client innés,
+                    rôle de product owner et chargé d'étude digitale rassurant
+                    pour les clients..."
+                  </p>
+                  <b>Anne Didelet</b>
+                  <i>Directrice de clientèle</i>
+                  <UButton
+                    color="gray"
+                    variant="solid"
+                    to="/recommandations"
+                    class="mt-4"
+                    >Lire toute la recommandation
+                  </UButton>
+                </CardContent>
+              </UCard>
+            </div>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious class="bg-[#120202] text-white border-[#3E2525]" />
+        <CarouselNext
+          v-if="canScrollNext"
+          class="bg-[#120202] text-white border-[#3E2525]"
+        />
+      </Carousel>
+    </section>
+    <section class="mb-28">
+      <UCard class="bg-[#120202] text-center text-2xl ring-transparent">
+        Un projet ? Une mission ? Une opportunité ?
+        <UButton color="primary" variant="solid" class="ml-4 text-xl"
+          >Contactez-moi</UButton
+        >
+      </UCard>
     </section>
   </div>
 </template>
@@ -237,6 +343,14 @@ import {
   StepperTitle,
   StepperTrigger,
 } from '@/components/ui/stepper'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
 import { Check, Circle, Dot } from 'lucide-vue-next'
 
 const techMoreIsOpen = ref(false)

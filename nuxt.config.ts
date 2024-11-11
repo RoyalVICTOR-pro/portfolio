@@ -24,4 +24,9 @@ export default defineNuxtConfig({
      */
     componentDir: './components/ui',
   },
+  runtimeConfig: {
+    public: {
+      available: '',
+    },
+  },
 })

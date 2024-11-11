@@ -87,5 +87,15 @@ module.exports = {
       },
     },
   },
-  plugins: [animate, setupInspiraUI],
+  plugins: [
+    animate,
+    setupInspiraUI,
+    function ({ addVariant }) {
+      addVariant('group-scroll', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.group.scroll${separator}${className}`
+        })
+      })
+    },
+  ],
 }
