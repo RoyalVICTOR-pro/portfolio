@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Background />
+    <!-- <Background /> -->
     <NavigationHeader ref="header" />
     <main class="max-w-7xl mx-auto pt-48">
       <slot />
@@ -8,39 +8,20 @@
     <Footer>
       <div class="flex flex-row justify-between max-w-7xl mx-auto py-4">
         <div>
-          <p>&copy; 2024 Royal Victor</p>
+          <p>&copy; 2024 Royal VICTOR</p>
         </div>
         <div>
-          <UButton
-            icon="i-grommet-icons-linkedin-option"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
-          <UButton
-            icon="i-grommet-icons-github"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="https://github.com/RoyalVICTOR-pro"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
-          <UButton
-            icon="i-grommet-icons-mail"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="mailto:royal.victor.pro@gmail.com"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
+          <NavigationIconButton
+            url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
+          >
+            <IconLinkedIn />
+          </NavigationIconButton>
+          <NavigationIconButton url="https://github.com/RoyalVICTOR-pro">
+            <IconGithub />
+          </NavigationIconButton>
+          <NavigationIconButton url="mailto:royal.victor.pro@gmail.com">
+            <IconMail />
+          </NavigationIconButton>
         </div>
       </div>
     </Footer>
@@ -52,12 +33,6 @@ const colorMode = useColorMode()
 colorMode.preference = 'dark'
 
 const header = ref(null)
-
-const buttonHoverColor = {
-  variant: {
-    ghost: 'hover:bg-red-950 disabled:bg-transparent dark:hover:bg-red-950',
-  },
-}
 
 onMounted(() => {
   const handleScroll = () => {
@@ -76,18 +51,18 @@ onMounted(() => {
 </script>
 
 <style>
-body {
+/* body {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
 }
 .dark-mode body {
   background: linear-gradient(-45deg, #000000, #160202);
-  /* background-color: #22262E; */
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
   color: #ebf4f1;
-}
+} */
+/* background-color: #22262E; */
 
 @keyframes gradient {
   0% {
@@ -99,5 +74,9 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.icon-button {
+  @apply hover:bg-primary/25 disabled:bg-transparent dark:hover:bg-primary/25;
 }
 </style>

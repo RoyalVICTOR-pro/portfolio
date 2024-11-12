@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark',
   },
+  css: ['@/assets/css/colors.css', '@/assets/css/custom.css'],
   shadcn: {
     /**
      * Prefix for all the imported component

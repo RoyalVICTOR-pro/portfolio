@@ -25,36 +25,17 @@
           </nav>
         </div>
         <div class="mr-2">
-          <UButton
-            icon="i-grommet-icons-linkedin-option"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
-          <UButton
-            icon="i-grommet-icons-github"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="https://github.com/RoyalVICTOR-pro"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
-          <UButton
-            icon="i-grommet-icons-mail"
-            size="sm"
-            color="primary"
-            square
-            variant="ghost"
-            to="mailto:royal.victor.pro@gmail.com"
-            target="_blank"
-            :ui="buttonHoverColor"
-          />
+          <NavigationIconButton
+            url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
+          >
+            <IconLinkedIn />
+          </NavigationIconButton>
+          <NavigationIconButton url="https://github.com/RoyalVICTOR-pro">
+            <IconGithub />
+          </NavigationIconButton>
+          <NavigationIconButton url="mailto:royal.victor.pro@gmail.com">
+            <IconMail />
+          </NavigationIconButton>
         </div>
       </div>
     </div>
@@ -63,15 +44,10 @@
 
 <script lang="ts" setup>
 const isScrolled = ref(false)
+import { Button } from '@/components/ui/button'
 
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })
-
-const buttonHoverColor = {
-  variant: {
-    ghost: 'hover:bg-red-950 disabled:bg-transparent dark:hover:bg-red-950',
-  },
-}
 </script>
 
 <style></style>

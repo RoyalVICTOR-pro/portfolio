@@ -1,0 +1,23 @@
+:root {
+  --background: 255 255 255;
+  --foreground: 10 10 10;
+  --primary: 26 115 232;
+  --primary-foreground: 255 255 255;
+  --secondary: 255 64 129;
+  --secondary-foreground: 255 255 255;
+  --accent: 224 64 251;
+  --accent-foreground: 255 255 255;
+  /* Ajoutez d'autres variables selon vos besoins */
+}
+
+.dark {
+  --background: 18 18 18;
+  --foreground: 255 255 255;
+  --primary: 187 134 252;
+  --primary-foreground: 0 0 0;
+  --secondary: 3 218 198;
+  --secondary-foreground: 0 0 0;
+  --accent: 255 64 129;
+  --accent-foreground: 255 255 255;
+  /* Ajoutez d'autres variables selon vos besoins */
+}

@@ -9,12 +9,12 @@
     </Badge>
     <Badge
       v-else-if="available == 'soon'"
-      class="bg-yellow-400 text-yellow-950"
+      class="bg-yellow-400 text-yellow-950 hover:bg-yellow-200"
     >
       <UIcon name="i-grommet-icons-clock" class="mr-3" />
       Bientôt disponible
     </Badge>
-    <Badge v-else class="bg-red-400 text-red-950">
+    <Badge v-else class="bg-red-400 text-red-950 hover:bg-red-200">
       <UIcon name="i-grommet-icons-close" class="mr-3" />
       Indisponible
     </Badge>

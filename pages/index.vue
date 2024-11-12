@@ -21,27 +21,58 @@
           digitales utiles et performantes."
         </h3>
         <div>
-          <UTooltip
-            text="Typescript/Javascript"
-            :popper="{ placement: 'bottom' }"
-          >
-            <UIcon name="i-cib-typescript" class="w-10 h-10 mr-3" />
-          </UTooltip>
-          <UTooltip
-            text="VueJS (Composition API, Pinia, Vue Router...)"
-            :popper="{ placement: 'bottom' }"
-          >
-            <UIcon name="i-fa-brands-vuejs" class="w-11 h-11 mr-1" />
-          </UTooltip>
-          <UTooltip text="NuxtJS" :popper="{ placement: 'bottom' }">
-            <UIcon name="i-cib-nuxt-js" class="w-11 h-11 mr-3" />
-          </UTooltip>
-          <UTooltip
-            text="NodeJS (Express, NestJS, AdonisJS)"
-            :popper="{ placement: 'bottom' }"
-          >
-            <UIcon name="i-fa-brands-node-js" class="w-10 h-10" />
-          </UTooltip>
+          <TooltipProvider>
+            <Tooltip :delay-duration="0">
+              <TooltipTrigger>
+                <IconTypescript class="w-10 h-10 mb-1 mr-3 text-foreground" />
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                class="bg-background text-foreground"
+              >
+                <p>Typescript/Javascript</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip :delay-duration="0">
+              <TooltipTrigger>
+                <IconVueJS class="w-12 h-12 mr-1 mt-1 text-foreground" />
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                class="bg-background text-foreground"
+              >
+                <p>VueJS (Composition API, Pinia, Vue Router...)</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip :delay-duration="0">
+              <TooltipTrigger>
+                <IconNuxt class="w-12 h-12 mr-3 text-foreground" />
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                class="bg-background text-foreground"
+              >
+                <p>NuxtJS</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip :delay-duration="0">
+              <TooltipTrigger>
+                <IconNodeJS class="w-10 h-10 mb-1 mr-3 text-foreground" />
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                class="bg-background text-foreground"
+              >
+                <p>NodeJS (Express, NestJS, AdonisJS)</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <br />
           <Collapsible v-model:open="techMoreIsOpen" class="mt-3">
             <CollapsibleTrigger class="text-sm flex justify-center mb-3">
@@ -352,6 +383,12 @@ import {
 } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import { Check, Circle, Dot } from 'lucide-vue-next'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 const techMoreIsOpen = ref(false)
 // const xpMoreIsOpen = ref(false)
