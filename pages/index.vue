@@ -18,48 +18,16 @@
         digitales utiles et performantes."
       </h3>
       <div>
-        <TooltipProvider>
-          <Tooltip :delay-duration="0">
-            <TooltipTrigger>
-              <IconTypescript
-                class="w-10 h-10 mb-1 mr-3 text-foreground pointer-events-none"
-              />
-            </TooltipTrigger>
-            <TooltipContent side="bottom" class="bg-background text-foreground">
-              <p>Typescript/Javascript</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip :delay-duration="0">
-            <TooltipTrigger>
-              <IconVueJS class="w-12 h-12 mr-1 mt-1 text-foreground" />
-            </TooltipTrigger>
-            <TooltipContent side="bottom" class="bg-background text-foreground">
-              <p>VueJS (Composition API, Pinia, Vue Router...)</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip :delay-duration="0">
-            <TooltipTrigger>
-              <IconNuxt class="w-12 h-12 mr-3 text-foreground" />
-            </TooltipTrigger>
-            <TooltipContent side="bottom" class="bg-background text-foreground">
-              <p>NuxtJS</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip :delay-duration="0">
-            <TooltipTrigger>
-              <IconNodeJS class="w-10 h-10 mb-1 mr-3 text-foreground" />
-            </TooltipTrigger>
-            <TooltipContent side="bottom" class="bg-background text-foreground">
-              <p>NodeJS (Express, NestJS, AdonisJS)</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <CustomTooltip icon="IconTypescript" text="Typescript/Javascript" />
+        <CustomTooltip
+          icon="IconVueJS"
+          text="VueJS (Composition API, Pinia, Vue Router...)"
+        />
+        <CustomTooltip icon="IconNuxt" text="NuxtJS" />
+        <CustomTooltip
+          icon="IconNodeJS"
+          text="NodeJS (Express, NestJS, AdonisJS)"
+        />
         <br />
         <Collapsible v-model:open="techMoreIsOpen" class="mt-3">
           <CollapsibleTrigger class="text-sm flex justify-center mb-3">
@@ -110,10 +78,10 @@
                 : 'outline'
             "
             size="icon"
-            class="z-10 rounded-full shrink-0"
+            class="z-10 rounded-full shrink-0 text-background"
             :class="[
               state === 'active' &&
-                'ring-2 ring-ring ring-offset-2 ring-offset-background',
+                'ring-2 ring-foreground ring-offset-2 ring-offset-background',
             ]"
           >
             <Check v-if="state === 'completed'" class="size-5" />
@@ -239,83 +207,41 @@
       class="relative w-full max-w-2xl test1 mx-auto"
     >
       <CarouselContent class="test2">
-        <CarouselItem class="test4">
-          <div class="p-1">
-            <Card>
-              <CardContent
-                class="flex flex-col aspect-square items-center justify-center p-6"
-                ><p class="mb-4">
-                  "... Royal est aussi à l'aise avec les clients qu'avec les
-                  développeurs. Il comprend les besoins et aide à les murir. Il
-                  sait les formaliser, connait les implications techniques et
-                  comprend le jargon des programmeurs. Selon mon expérience
-                  c'est très rare et tellement précieux !..."
-                </p>
-                <b>Julien Laurent</b>
-                <i>Lead Développeur</i>
-                <Button class="mt-4 bg-background text-foreground">
-                  <NuxtLink to="/recommandations">
-                    Lire toute la recommandation
-                  </NuxtLink>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
-        <CarouselItem class="">
-          <div class="p-1">
-            <Card>
-              <CardContent
-                class="flex flex-col aspect-square items-center justify-center p-6"
-              >
-                <p class="mb-4">
-                  "...travailler avec lui a toujours été un plaisir. Son
-                  attitude positive, son professionnalisme et son sens des
-                  relations humaines en font un collègue précieux. J’appréciais
-                  particulièrement d’échanger avec lui, ce qui nous a toujours
-                  permis de trouver des solutions à des problèmes complexes..."
-                </p>
-                <b>Stéphane Guillo</b>
-                <i>Directeur opérationnel</i>
-                <Button class="mt-4 bg-background text-foreground">
-                  <NuxtLink to="/recommandations">
-                    Lire toute la recommandation
-                  </NuxtLink>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
-        <CarouselItem class="">
-          <div class="p-1">
-            <Card>
-              <CardContent
-                class="flex flex-col aspect-square items-center justify-center p-6"
-              >
-                <p class="mb-4">
-                  "Partager des rendez-vous d'avant vente avec Royal a toujours
-                  été un grand plus pour le closing des dossiers digitaux :
-                  relation commerciale et contact client innés, rôle de product
-                  owner et chargé d'étude digitale rassurant pour les
-                  clients..."
-                </p>
-                <b>Anne Didelet</b>
-                <i>Directrice de clientèle</i>
-                <Button class="mt-4 bg-background text-foreground">
-                  <NuxtLink to="/recommandations">
-                    Lire toute la recommandation
-                  </NuxtLink>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
+        <CustomCarrouselItem url="/recommandations">
+          <p class="mb-4">
+            "... Royal est aussi à l'aise avec les clients qu'avec les
+            développeurs. Il comprend les besoins et aide à les murir. Il sait
+            les formaliser, connait les implications techniques et comprend le
+            jargon des programmeurs. Selon mon expérience c'est très rare et
+            tellement précieux !..."
+          </p>
+          <b>Julien Laurent</b>
+          <i>Lead Développeur</i>
+        </CustomCarrouselItem>
+        <CustomCarrouselItem url="/recommandations">
+          <p class="mb-4">
+            "...travailler avec lui a toujours été un plaisir. Son attitude
+            positive, son professionnalisme et son sens des relations humaines
+            en font un collègue précieux. J’appréciais particulièrement
+            d’échanger avec lui, ce qui nous a toujours permis de trouver des
+            solutions à des problèmes complexes..."
+          </p>
+          <b>Stéphane Guillo</b>
+          <i>Directeur opérationnel</i>
+        </CustomCarrouselItem>
+        <CustomCarrouselItem url="/recommandations">
+          <p class="mb-4">
+            "Partager des rendez-vous d'avant vente avec Royal a toujours été un
+            grand plus pour le closing des dossiers digitaux : relation
+            commerciale et contact client innés, rôle de product owner et chargé
+            d'étude digitale rassurant pour les clients..."
+          </p>
+          <b>Anne Didelet</b>
+          <i>Directrice de clientèle</i>
+        </CustomCarrouselItem>
       </CarouselContent>
-      <CarouselPrevious class="bg-[#120202] text-white border-[#3E2525]" />
-      <CarouselNext
-        v-if="canScrollNext"
-        class="bg-[#120202] text-white border-[#3E2525]"
-      />
+      <CarouselPrevious class="" />
+      <CarouselNext v-if="canScrollNext" class="" />
     </Carousel>
   </section>
   <section class="mb-28">
@@ -329,35 +255,6 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import {
-  Stepper,
-  StepperDescription,
-  StepperItem,
-  StepperSeparator,
-  StepperTitle,
-  StepperTrigger,
-} from '@/components/ui/stepper'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import { Check, Circle, Dot } from 'lucide-vue-next'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
 const techMoreIsOpen = ref(false)
 // const xpMoreIsOpen = ref(false)
 
