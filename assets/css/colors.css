@@ -7,6 +7,7 @@
   --secondary-foreground: 255 255 255;
   --accent: 224 64 251;
   --accent-foreground: 255 255 255;
+  --lightcontrast: 240 240 240;
   /* Ajoutez d'autres variables selon vos besoins */
 }
 
@@ -19,5 +20,6 @@
   --secondary-foreground: 0 0 0;
   --accent: 255 64 129;
   --accent-foreground: 255 255 255;
+  --lightcontrast: 45 45 45;
   /* Ajoutez d'autres variables selon vos besoins */
 }

@@ -1,210 +1,195 @@
 <template>
-  <div>
-    <div
-      class="w-full flex justify-around items-center px-4 pb-10 gap-2 h-[600px]"
-    >
-      <div class="flex flex-col h-[600px] w-1/2">
-        <div class="mt-10 h-[200px] mb-8">
-          <InspiraBlurReveal>
-            <h1 class="font-heading font-extralight text-8xl mt-8 mb-4">
-              Royal <b class="font-bold">VICTOR</b>
-            </h1>
-            <h2
-              class="font-heading font-light text-4xl mb-12 ml-1 text-primary"
-            >
-              Développeur Fullstack
-            </h2>
-          </InspiraBlurReveal>
-        </div>
-        <h3 class="font-heading ml-1 mb-12 text-2xl">
-          "J'aime combiner technique et vision métier<br />pour des solutions
-          digitales utiles et performantes."
-        </h3>
-        <div>
-          <TooltipProvider>
-            <Tooltip :delay-duration="0">
-              <TooltipTrigger>
-                <IconTypescript class="w-10 h-10 mb-1 mr-3 text-foreground" />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                class="bg-background text-foreground"
-              >
-                <p>Typescript/Javascript</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip :delay-duration="0">
-              <TooltipTrigger>
-                <IconVueJS class="w-12 h-12 mr-1 mt-1 text-foreground" />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                class="bg-background text-foreground"
-              >
-                <p>VueJS (Composition API, Pinia, Vue Router...)</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip :delay-duration="0">
-              <TooltipTrigger>
-                <IconNuxt class="w-12 h-12 mr-3 text-foreground" />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                class="bg-background text-foreground"
-              >
-                <p>NuxtJS</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip :delay-duration="0">
-              <TooltipTrigger>
-                <IconNodeJS class="w-10 h-10 mb-1 mr-3 text-foreground" />
-              </TooltipTrigger>
-              <TooltipContent
-                side="bottom"
-                class="bg-background text-foreground"
-              >
-                <p>NodeJS (Express, NestJS, AdonisJS)</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <br />
-          <Collapsible v-model:open="techMoreIsOpen" class="mt-3">
-            <CollapsibleTrigger class="text-sm flex justify-center mb-3">
-              <span>Voir plus</span>
-              <UIcon
-                name="i-fa-solid-chevron-down"
-                class="w-3 h-3 ml-2 mt-1 pt-1"
+  <section
+    class="w-full flex justify-around items-center px-4 pb-10 gap-2 h-[600px]"
+  >
+    <div class="flex flex-col h-[600px] w-1/2">
+      <div class="mt-10 h-[200px] mb-8">
+        <InspiraBlurReveal>
+          <h1 class="font-heading font-extralight text-8xl mt-8 mb-4">
+            Royal <b class="font-bold">VICTOR</b>
+          </h1>
+          <h2 class="font-heading font-light text-4xl mb-12 ml-1 text-primary">
+            Développeur Fullstack
+          </h2>
+        </InspiraBlurReveal>
+      </div>
+      <h3 class="font-heading ml-1 mb-12 text-2xl">
+        "J'aime combiner technique et vision métier<br />pour des solutions
+        digitales utiles et performantes."
+      </h3>
+      <div>
+        <TooltipProvider>
+          <Tooltip :delay-duration="0">
+            <TooltipTrigger>
+              <IconTypescript
+                class="w-10 h-10 mb-1 mr-3 text-foreground pointer-events-none"
               />
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <ul>
-                <li>
-                  <b>Transverse : </b>Typescript, Javascript, TDD (Jest, Japa),
-                  sensible au clean code
-                </li>
-                <li><b>Frontend : </b>VueJS, Nuxt, Tailwind, HTML5, CSS3</li>
-                <li>
-                  <b>Backend : </b>NodeJS, NestJS, AdonisJS, Swagger, PHP,
-                  Laravel
-                </li>
-                <li>
-                  <b>Base de données : </b>MySQL, MongoDB, Redis, TypeORM, Lucid
-                  ORM, Eloquent ORM
-                </li>
-              </ul>
-            </CollapsibleContent>
-          </Collapsible>
-        </div>
-      </div>
-      <PhotoRollover class="h-fit bg-slate-50 flex" />
-    </div>
-    <div class="flex flex-col w-full mx-auto items-center gap-8 mt-28">
-      <h2 class="font-light text-2xl ml-1">Parcours</h2>
-      <Stepper class="flex w-full items-start gap-2 mb-12" :defaultValue="5">
-        <StepperItem
-          v-for="step in steps"
-          :key="step.step"
-          v-slot="{ state }"
-          class="relative flex w-full flex-col items-center justify-center"
-          :step="step.step"
-        >
-          <StepperSeparator
-            v-if="step.step !== steps[steps.length - 1].step"
-            class="absolute left-[calc(50%+20px)] right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary"
-          />
-
-          <StepperTrigger as-child>
-            <Button
-              :variant="
-                state === 'completed' || state === 'active'
-                  ? 'default'
-                  : 'outline'
-              "
-              size="icon"
-              class="z-10 rounded-full shrink-0"
-              :class="[
-                state === 'active' &&
-                  'ring-2 ring-ring ring-offset-2 ring-offset-background',
-              ]"
-            >
-              <Check v-if="state === 'completed'" class="size-5" />
-              <Circle v-if="state === 'active'" />
-              <Dot v-if="state === 'inactive'" />
-            </Button>
-          </StepperTrigger>
-
-          <div class="mt-5 flex flex-col items-center text-center">
-            <StepperTitle
-              :class="[state === 'active' && 'text-primary']"
-              class="text-sm font-semibold transition lg:text-base"
-            >
-              {{ step.title }}
-            </StepperTitle>
-            <StepperDescription
-              :class="[state === 'active' && 'text-primary']"
-              class="sr-only text-xs text-slate-400 transition md:not-sr-only lg:text-sm"
-              v-html="step.description"
-            >
-            </StepperDescription>
-          </div>
-        </StepperItem>
-      </Stepper>
-    </div>
-    <div class="flex justify-evenly mt-28">
-      <div class="flex flex-col items-center w-1/4">
-        <h3
-          class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
-        >
-          +18ans
-        </h3>
-        <p class="text-center text-2xl">d'expérience<br />dans le digital</p>
-      </div>
-      <div class="flex flex-col items-center w-1/4">
-        <h3
-          class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
-        >
-          +500
-        </h3>
-        <p class="text-center text-2xl">projets réalisés</p>
-      </div>
-      <div class="flex flex-col items-center w-1/4">
-        <h3
-          class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
-        >
-          +5ans
-        </h3>
-        <p class="text-center text-2xl">
-          d'expérience<br />en tant que développeur
-        </p>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" class="bg-background text-foreground">
+              <p>Typescript/Javascript</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip :delay-duration="0">
+            <TooltipTrigger>
+              <IconVueJS class="w-12 h-12 mr-1 mt-1 text-foreground" />
+            </TooltipTrigger>
+            <TooltipContent side="bottom" class="bg-background text-foreground">
+              <p>VueJS (Composition API, Pinia, Vue Router...)</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip :delay-duration="0">
+            <TooltipTrigger>
+              <IconNuxt class="w-12 h-12 mr-3 text-foreground" />
+            </TooltipTrigger>
+            <TooltipContent side="bottom" class="bg-background text-foreground">
+              <p>NuxtJS</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip :delay-duration="0">
+            <TooltipTrigger>
+              <IconNodeJS class="w-10 h-10 mb-1 mr-3 text-foreground" />
+            </TooltipTrigger>
+            <TooltipContent side="bottom" class="bg-background text-foreground">
+              <p>NodeJS (Express, NestJS, AdonisJS)</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <br />
+        <Collapsible v-model:open="techMoreIsOpen" class="mt-3">
+          <CollapsibleTrigger class="text-sm flex justify-center mb-3">
+            <span>Voir plus</span>
+            <IconChevronDown class="w-6 h-6 ml-2 pb-1" />
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <ul>
+              <li>
+                <b>Transverse : </b>Typescript, Javascript, TDD (Jest, Japa),
+                sensible au clean code
+              </li>
+              <li><b>Frontend : </b>VueJS, Nuxt, Tailwind, HTML5, CSS3</li>
+              <li>
+                <b>Backend : </b>NodeJS, NestJS, AdonisJS, Swagger, PHP, Laravel
+              </li>
+              <li>
+                <b>Base de données : </b>MySQL, MongoDB, Redis, TypeORM, Lucid
+                ORM, Eloquent ORM
+              </li>
+            </ul>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </div>
-    <div class="flex justify-evenly mt-28 mb-28">
-      <UCard
-        class="bg-[#120202] text-center w-1/4"
-        :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+    <PhotoRollover class="h-fit bg-slate-50 flex" />
+  </section>
+  <section class="flex flex-col w-full mx-auto items-center gap-8 mt-28">
+    <h2 class="font-light text-2xl ml-1">Parcours</h2>
+    <Stepper class="flex w-full items-start gap-2 mb-12" :defaultValue="5">
+      <StepperItem
+        v-for="step in steps"
+        :key="step.step"
+        v-slot="{ state }"
+        class="relative flex w-full flex-col items-center justify-center"
+        :step="step.step"
       >
-        <h3 class="font-bold mb-4 text-2xl">Profil</h3>
+        <StepperSeparator
+          v-if="step.step !== steps[steps.length - 1].step"
+          class="absolute left-[calc(50%+20px)] right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary"
+        />
+
+        <StepperTrigger as-child>
+          <Button
+            :variant="
+              state === 'completed' || state === 'active'
+                ? 'default'
+                : 'outline'
+            "
+            size="icon"
+            class="z-10 rounded-full shrink-0"
+            :class="[
+              state === 'active' &&
+                'ring-2 ring-ring ring-offset-2 ring-offset-background',
+            ]"
+          >
+            <Check v-if="state === 'completed'" class="size-5" />
+            <Circle v-if="state === 'active'" />
+            <Dot v-if="state === 'inactive'" />
+          </Button>
+        </StepperTrigger>
+
+        <div class="mt-5 flex flex-col items-center text-center">
+          <StepperTitle
+            :class="[state === 'active' && 'text-primary']"
+            class="text-sm font-semibold transition lg:text-base"
+          >
+            {{ step.title }}
+          </StepperTitle>
+          <StepperDescription
+            :class="[state === 'active' && 'text-primary']"
+            class="sr-only text-xs text-slate-400 transition md:not-sr-only lg:text-sm"
+            v-html="step.description"
+          >
+          </StepperDescription>
+        </div>
+      </StepperItem>
+    </Stepper>
+  </section>
+  <section class="flex justify-evenly mt-28">
+    <div class="flex flex-col items-center w-1/4">
+      <h3
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+      >
+        +18ans
+      </h3>
+      <p class="text-center text-2xl">d'expérience<br />dans le digital</p>
+    </div>
+    <div class="flex flex-col items-center w-1/4">
+      <h3
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+      >
+        +500
+      </h3>
+      <p class="text-center text-2xl">projets réalisés</p>
+    </div>
+    <div class="flex flex-col items-center w-1/4">
+      <h3
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+      >
+        +5ans
+      </h3>
+      <p class="text-center text-2xl">
+        d'expérience<br />en tant que développeur
+      </p>
+    </div>
+  </section>
+  <section class="flex justify-evenly mt-28 mb-28">
+    <Card class="w-1/4 text-center">
+      <CardHeader>
+        <CardTitle>Profil</CardTitle>
+      </CardHeader>
+      <CardContent>
         Consciencieux<br />
         Autonome et pro-actif<br />
         Team player<br />
-      </UCard>
-      <UCard
-        class="bg-[#120202] text-center w-1/4"
-        :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
-      >
-        <h3 class="font-bold mb-4 text-2xl">Qualités reconnues</h3>
+      </CardContent>
+    </Card>
+    <Card class="w-1/4 text-center">
+      <CardHeader>
+        <CardTitle>Qualités reconnues</CardTitle>
+      </CardHeader>
+      <CardContent>
         Très bon relationnel<br />
         Capacité d’adaptation<br />
         Pédagogue
-      </UCard>
-    </div>
-    <!-- <Collapsible v-model:open="xpMoreIsOpen" class="mt-3 mx-auto w-2/3 mb-28">
+      </CardContent>
+    </Card>
+  </section>
+  <!-- <Collapsible v-model:open="xpMoreIsOpen" class="mt-3 mx-auto w-2/3 mb-28">
       <CollapsibleTrigger
         class="text-sm flex justify-center mb-3 w-1/3 mx-auto"
       >
@@ -224,140 +209,123 @@
         à l’écoute des besoins utilisateurs et continuer à apprendre.
       </CollapsibleContent>
     </Collapsible> -->
-    <section class="flex flex-col items-center w-full mb-28">
-      <h2 class="font-heading font-bold text-3xl text-center">
-        Sélection de projets
-      </h2>
+  <section class="flex flex-col items-center w-full mb-28">
+    <h2 class="font-heading font-bold text-3xl text-center">
+      Sélection de projets
+    </h2>
 
-      <div class="flex justify-around mt-12 gap-2">
-        <Achievement
-          v-for="achievement in achievements"
-          :key="achievement.title"
-          :tags="achievement.tags"
-          :image="achievement.image"
-          :title="achievement.title"
-          :description="achievement.description"
-          :url="achievement.url"
-          class="w-1/3"
-        />
-      </div>
-      <UButton color="primary" variant="solid" to="/projets">
-        Voir tous les projets
-      </UButton>
-    </section>
-    <section class="mb-28">
-      <h2 class="font-heading font-bold text-3xl text-center mb-12">
-        Recommandations
-      </h2>
-      <Carousel
-        v-slot="{ canScrollNext }"
-        class="relative w-full max-w-2xl test1 mx-auto"
-      >
-        <CarouselContent class="test2">
-          <CarouselItem class="test4">
-            <div class="p-1">
-              <UCard
-                class="bg-[#120202] text-white min-h-[320px]"
-                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+    <div class="flex justify-around mt-12 gap-2">
+      <Achievement
+        v-for="achievement in achievements"
+        :key="achievement.title"
+        :tags="achievement.tags"
+        :image="achievement.image"
+        :title="achievement.title"
+        :description="achievement.description"
+        :url="achievement.url"
+        class="w-1/3"
+      />
+    </div>
+    <Button class="bg-primary text-white">
+      <NuxtLink to="/projets"> Voir plus </NuxtLink>
+    </Button>
+  </section>
+  <section class="mb-28">
+    <h2 class="font-heading font-bold text-3xl text-center mb-12">
+      Recommandations
+    </h2>
+    <Carousel
+      v-slot="{ canScrollNext }"
+      class="relative w-full max-w-2xl test1 mx-auto"
+    >
+      <CarouselContent class="test2">
+        <CarouselItem class="test4">
+          <div class="p-1">
+            <Card>
+              <CardContent
+                class="flex flex-col aspect-square items-center justify-center p-6"
+                ><p class="mb-4">
+                  "... Royal est aussi à l'aise avec les clients qu'avec les
+                  développeurs. Il comprend les besoins et aide à les murir. Il
+                  sait les formaliser, connait les implications techniques et
+                  comprend le jargon des programmeurs. Selon mon expérience
+                  c'est très rare et tellement précieux !..."
+                </p>
+                <b>Julien Laurent</b>
+                <i>Lead Développeur</i>
+                <Button class="mt-4 bg-background text-foreground">
+                  <NuxtLink to="/recommandations">
+                    Lire toute la recommandation
+                  </NuxtLink>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+        <CarouselItem class="">
+          <div class="p-1">
+            <Card>
+              <CardContent
+                class="flex flex-col aspect-square items-center justify-center p-6"
               >
-                <CardContent
-                  class="flex flex-col aspect-square items-center justify-center p-6"
-                  ><p class="mb-4">
-                    "... Royal est aussi à l'aise avec les clients qu'avec les
-                    développeurs. Il comprend les besoins et aide à les murir.
-                    Il sait les formaliser, connait les implications techniques
-                    et comprend le jargon des programmeurs. Selon mon expérience
-                    c'est très rare et tellement précieux !..."
-                  </p>
-                  <b>Julien Laurent</b>
-                  <i>Lead Développeur</i>
-                  <UButton
-                    color="gray"
-                    variant="solid"
-                    to="/recommandations"
-                    class="mt-4"
-                    >Lire toute la recommandation
-                  </UButton>
-                </CardContent>
-              </UCard>
-            </div>
-          </CarouselItem>
-          <CarouselItem class="">
-            <div class="p-1">
-              <UCard
-                class="bg-[#120202] text-white min-h-[320px]"
-                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
+                <p class="mb-4">
+                  "...travailler avec lui a toujours été un plaisir. Son
+                  attitude positive, son professionnalisme et son sens des
+                  relations humaines en font un collègue précieux. J’appréciais
+                  particulièrement d’échanger avec lui, ce qui nous a toujours
+                  permis de trouver des solutions à des problèmes complexes..."
+                </p>
+                <b>Stéphane Guillo</b>
+                <i>Directeur opérationnel</i>
+                <Button class="mt-4 bg-background text-foreground">
+                  <NuxtLink to="/recommandations">
+                    Lire toute la recommandation
+                  </NuxtLink>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+        <CarouselItem class="">
+          <div class="p-1">
+            <Card>
+              <CardContent
+                class="flex flex-col aspect-square items-center justify-center p-6"
               >
-                <CardContent
-                  class="flex flex-col aspect-square items-center justify-center p-6"
-                >
-                  <p class="mb-4">
-                    "...travailler avec lui a toujours été un plaisir. Son
-                    attitude positive, son professionnalisme et son sens des
-                    relations humaines en font un collègue précieux.
-                    J’appréciais particulièrement d’échanger avec lui, ce qui
-                    nous a toujours permis de trouver des solutions à des
-                    problèmes complexes..."
-                  </p>
-                  <b>Stéphane Guillo</b>
-                  <i>Directeur opérationnel</i>
-                  <UButton
-                    color="gray"
-                    variant="solid"
-                    to="/recommandations"
-                    class="mt-4"
-                    >Lire toute la recommandation
-                  </UButton>
-                </CardContent>
-              </UCard>
-            </div>
-          </CarouselItem>
-          <CarouselItem class="">
-            <div class="p-1">
-              <UCard
-                class="bg-[#120202] text-white min-h-[320px]"
-                :ui="{ ring: 'ring-1 ring-[#3E2525] dark:ring-red-800' }"
-              >
-                <CardContent
-                  class="flex flex-col aspect-square items-center justify-center p-6"
-                >
-                  <p class="mb-4">
-                    "Partager des rendez-vous d'avant vente avec Royal a
-                    toujours été un grand plus pour le closing des dossiers
-                    digitaux : relation commerciale et contact client innés,
-                    rôle de product owner et chargé d'étude digitale rassurant
-                    pour les clients..."
-                  </p>
-                  <b>Anne Didelet</b>
-                  <i>Directrice de clientèle</i>
-                  <UButton
-                    color="gray"
-                    variant="solid"
-                    to="/recommandations"
-                    class="mt-4"
-                    >Lire toute la recommandation
-                  </UButton>
-                </CardContent>
-              </UCard>
-            </div>
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious class="bg-[#120202] text-white border-[#3E2525]" />
-        <CarouselNext
-          v-if="canScrollNext"
-          class="bg-[#120202] text-white border-[#3E2525]"
-        />
-      </Carousel>
-    </section>
-    <section class="mb-28">
-      <UCard class="bg-[#120202] text-center text-2xl ring-transparent">
-        Un projet ? Une mission ? Une opportunité ?
-        <UButton color="primary" variant="solid" class="ml-4 text-xl"
-          >Contactez-moi</UButton
-        >
-      </UCard>
-    </section>
-  </div>
+                <p class="mb-4">
+                  "Partager des rendez-vous d'avant vente avec Royal a toujours
+                  été un grand plus pour le closing des dossiers digitaux :
+                  relation commerciale et contact client innés, rôle de product
+                  owner et chargé d'étude digitale rassurant pour les
+                  clients..."
+                </p>
+                <b>Anne Didelet</b>
+                <i>Directrice de clientèle</i>
+                <Button class="mt-4 bg-background text-foreground">
+                  <NuxtLink to="/recommandations">
+                    Lire toute la recommandation
+                  </NuxtLink>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious class="bg-[#120202] text-white border-[#3E2525]" />
+      <CarouselNext
+        v-if="canScrollNext"
+        class="bg-[#120202] text-white border-[#3E2525]"
+      />
+    </Carousel>
+  </section>
+  <section class="mb-28">
+    <Card class="text-center p-2 flex flex-row justify-center items-center">
+      <h4 class="text-xl">Un projet ? Une mission ? Une opportunité ?</h4>
+      <Button class="bg-primary text-white ml-6 text-md">
+        <NuxtLink to="/contact"> Contactez-moi </NuxtLink>
+      </Button>
+    </Card>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -381,7 +349,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { Card, CardContent } from '@/components/ui/card'
 import { Check, Circle, Dot } from 'lucide-vue-next'
 import {
   Tooltip,
@@ -389,6 +356,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const techMoreIsOpen = ref(false)
 // const xpMoreIsOpen = ref(false)
