@@ -1,25 +1,23 @@
-:root {
-  --background: 255 255 255;
-  --foreground: 10 10 10;
-  --primary: 26 115 232;
-  --primary-foreground: 255 255 255;
-  --secondary: 255 64 129;
-  --secondary-foreground: 255 255 255;
-  --accent: 224 64 251;
-  --accent-foreground: 255 255 255;
+/* :root {
+  --foreground: rgb(21, 9, 9);
+  --background: rgb(248, 236, 236);
+  --primary: rgb(225, 51, 51);
+  --secondary: rgb(222, 124, 124);
+  --accent: rgb(188, 36, 36);
   --lightcontrast: 240 240 240;
-  /* Ajoutez d'autres variables selon vos besoins */
+  --primary-foreground: 255 255 255;
+  --secondary-foreground: 255 255 255;
+  --accent-foreground: 255 255 255;
 }
 
 .dark {
-  --background: 18 18 18;
-  --foreground: 255 255 255;
-  --primary: 187 134 252;
-  --primary-foreground: 0 0 0;
-  --secondary: 3 218 198;
-  --secondary-foreground: 0 0 0;
-  --accent: 255 64 129;
-  --accent-foreground: 255 255 255;
+  --foreground: rgb(245, 232, 232);
+  --background: rgb(20, 7, 7);
+  --primary: rgb(203, 31, 31);
+  --secondary: rgb(132, 33, 33);
+  --accent: rgb(96, 245, 9);
   --lightcontrast: 45 45 45;
-  /* Ajoutez d'autres variables selon vos besoins */
-}
+  --primary-foreground: 0 0 0;
+  --secondary-foreground: 0 0 0;
+  --accent-foreground: 255 255 255;
+} */

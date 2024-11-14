@@ -11,7 +11,11 @@
 
 <script setup>
 const colorMode = useColorMode()
-colorMode.preference = 'dark'
+
+onBeforeMount(() => {
+  colorMode.preference = 'dark'
+  colorMode.value = 'dark'
+})
 
 const header = ref(null)
 

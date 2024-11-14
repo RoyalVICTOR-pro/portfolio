@@ -44,7 +44,6 @@
 
 <script lang="ts" setup>
 const isScrolled = ref(false)
-import { Button } from '@/components/ui/button'
 
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })

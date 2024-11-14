@@ -8,7 +8,9 @@
           <h1 class="font-heading font-extralight text-8xl mt-8 mb-4">
             Royal <b class="font-bold">VICTOR</b>
           </h1>
-          <h2 class="font-heading font-light text-4xl mb-12 ml-1 text-primary">
+          <h2
+            class="font-heading font-light text-4xl mb-12 ml-1 text-gradient-primary"
+          >
             Développeur Fullstack
           </h2>
         </InspiraBlurReveal>
@@ -42,11 +44,11 @@
               </li>
               <li><b>Frontend : </b>VueJS, Nuxt, Tailwind, HTML5, CSS3</li>
               <li>
-                <b>Backend : </b>NodeJS, NestJS, AdonisJS, Swagger, PHP, Laravel
+                <b>Backend : </b>NodeJS, NestJS, AdonisJS, PHP, Laravel, Swagger
               </li>
               <li>
-                <b>Base de données : </b>MySQL, MongoDB, Redis, TypeORM, Lucid
-                ORM, Eloquent ORM
+                <b>Base de données : </b>MySQL, MongoDB, Redis, TypeORM,
+                LucidORM, EloquentORM
               </li>
             </ul>
           </CollapsibleContent>
@@ -78,13 +80,16 @@
                 : 'outline'
             "
             size="icon"
-            class="z-10 rounded-full shrink-0 text-background"
+            class="z-10 rounded-full shrink-0 text-foreground bg-gradient-primary flex items-center justify-center"
             :class="[
               state === 'active' &&
                 'ring-2 ring-foreground ring-offset-2 ring-offset-background',
             ]"
           >
-            <Check v-if="state === 'completed'" class="size-5" />
+            <ChevronsRight
+              v-if="state === 'completed'"
+              class="!w-6 !h-6 pl-0.5"
+            />
             <Circle v-if="state === 'active'" />
             <Dot v-if="state === 'inactive'" />
           </Button>
@@ -93,7 +98,7 @@
         <div class="mt-5 flex flex-col items-center text-center">
           <StepperTitle
             :class="[state === 'active' && 'text-primary']"
-            class="text-sm font-semibold transition lg:text-base"
+            class="text-sm transition lg:text-base"
           >
             {{ step.title }}
           </StepperTitle>
@@ -110,7 +115,7 @@
   <section class="flex justify-evenly mt-28">
     <div class="flex flex-col items-center w-1/4">
       <h3
-        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-gradient-primary"
       >
         +18ans
       </h3>
@@ -118,7 +123,7 @@
     </div>
     <div class="flex flex-col items-center w-1/4">
       <h3
-        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-gradient-primary"
       >
         +500
       </h3>
@@ -126,7 +131,7 @@
     </div>
     <div class="flex flex-col items-center w-1/4">
       <h3
-        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-primary"
+        class="font-heading font-bold text-7xl ml-1 mb-4 text-center text-gradient-primary"
       >
         +5ans
       </h3>
@@ -136,7 +141,7 @@
     </div>
   </section>
   <section class="flex justify-evenly mt-28 mb-28">
-    <Card class="w-1/4 text-center">
+    <Card class="w-1/4 text-center border-secondary">
       <CardHeader>
         <CardTitle>Profil</CardTitle>
       </CardHeader>
@@ -146,7 +151,7 @@
         Team player<br />
       </CardContent>
     </Card>
-    <Card class="w-1/4 text-center">
+    <Card class="w-1/4 text-center border-secondary">
       <CardHeader>
         <CardTitle>Qualités reconnues</CardTitle>
       </CardHeader>
@@ -157,26 +162,6 @@
       </CardContent>
     </Card>
   </section>
-  <!-- <Collapsible v-model:open="xpMoreIsOpen" class="mt-3 mx-auto w-2/3 mb-28">
-      <CollapsibleTrigger
-        class="text-sm flex justify-center mb-3 w-1/3 mx-auto"
-      >
-        <span>En savoir plus</span>
-        <UIcon name="i-fa-solid-chevron-down" class="w-3 h-3 ml-2 mt-1 pt-1" />
-      </CollapsibleTrigger>
-      <CollapsibleContent>
-        Avec 𝟭𝟴 𝗮𝗻𝘀 𝗱'𝗲𝘅𝗽é𝗿𝗶𝗲𝗻𝗰𝗲 𝗱𝗮𝗻𝘀 𝗹𝗲 𝗱𝗶𝗴𝗶𝘁𝗮𝗹 𝗲𝘁 𝗽𝗹𝘂𝘀 𝗱𝗲 𝟱𝟬𝟬 𝗽𝗿𝗼𝗷𝗲𝘁𝘀
-        𝗿é𝗮𝗹𝗶𝘀é𝘀, j'ai un parcours riche de développeur, UX Designer, chef de
-        projet et Product Owner. Je me consacre à nouveau pleinement au
-        développement depuis plus de 2 ans. (+5 ans XP au total). Cette
-        expérience me permet de combiner mes compétences techniques avec une
-        𝘀𝗼𝗹𝗶𝗱𝗲 𝗰𝗼𝗺𝗽𝗿é𝗵𝗲𝗻𝘀𝗶𝗼𝗻 𝗱𝗲𝘀 𝗲𝗻𝗷𝗲𝘂𝘅 𝗺é𝘁𝗶𝗲𝗿𝘀. Ma force réside dans mon
-        𝗲𝘅𝗰𝗲𝗹𝗹𝗲𝗻𝘁 𝗿𝗲𝗹𝗮𝘁𝗶𝗼𝗻𝗻𝗲𝗹 et ma 𝗰𝗮𝗽𝗮𝗰𝗶𝘁é 𝗱'𝗮𝗱𝗮𝗽𝘁𝗮𝘁𝗶𝗼𝗻, des atouts qui m'ont
-        permis de surmonter divers défis dans des contextes variés. → Ma
-        priorité : contribuer à des projets avec des équipes dynamiques, rester
-        à l’écoute des besoins utilisateurs et continuer à apprendre.
-      </CollapsibleContent>
-    </Collapsible> -->
   <section class="flex flex-col items-center w-full mb-28">
     <h2 class="font-heading font-bold text-3xl text-center">
       Sélection de projets
@@ -194,7 +179,7 @@
         class="w-1/3"
       />
     </div>
-    <Button class="bg-primary text-white">
+    <Button class="bg-gradient-primary text-white">
       <NuxtLink to="/projets"> Voir plus </NuxtLink>
     </Button>
   </section>
@@ -204,9 +189,9 @@
     </h2>
     <Carousel
       v-slot="{ canScrollNext }"
-      class="relative w-full max-w-2xl test1 mx-auto"
+      class="relative w-full max-w-2xl mx-auto"
     >
-      <CarouselContent class="test2">
+      <CarouselContent>
         <CustomCarrouselItem url="/recommandations">
           <p class="mb-4">
             "... Royal est aussi à l'aise avec les clients qu'avec les
@@ -222,8 +207,8 @@
           <p class="mb-4">
             "...travailler avec lui a toujours été un plaisir. Son attitude
             positive, son professionnalisme et son sens des relations humaines
-            en font un collègue précieux. J’appréciais particulièrement
-            d’échanger avec lui, ce qui nous a toujours permis de trouver des
+            en font un collègue précieux. J'appréciais particulièrement
+            d'échanger avec lui, ce qui nous a toujours permis de trouver des
             solutions à des problèmes complexes..."
           </p>
           <b>Stéphane Guillo</b>
@@ -245,9 +230,11 @@
     </Carousel>
   </section>
   <section class="mb-28">
-    <Card class="text-center p-2 flex flex-row justify-center items-center">
+    <Card
+      class="text-center p-6 flex flex-row justify-center items-center border-secondary bg-foreground text-background"
+    >
       <h4 class="text-xl">Un projet ? Une mission ? Une opportunité ?</h4>
-      <Button class="bg-primary text-white ml-6 text-md">
+      <Button class="bg-gradient-primary text-white ml-6 text-md">
         <NuxtLink to="/contact"> Contactez-moi </NuxtLink>
       </Button>
     </Card>
@@ -255,6 +242,8 @@
 </template>
 
 <script lang="ts" setup>
+import { ChevronsRight, Circle, Dot } from 'lucide-vue-next'
+
 const techMoreIsOpen = ref(false)
 // const xpMoreIsOpen = ref(false)
 

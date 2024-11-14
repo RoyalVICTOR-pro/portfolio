@@ -1,7 +1,7 @@
 <template>
-  <CarouselItem class="test4">
+  <CarouselItem>
     <div class="p-1">
-      <Card>
+      <Card class="border-secondary">
         <CardContent
           class="flex flex-col aspect-square items-center justify-center p-6"
         >
