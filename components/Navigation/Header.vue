@@ -1,6 +1,11 @@
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 group backdrop-blur-xl"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    :class="[
+      isScrolled
+        ? 'bg-background/80 backdrop-blur-md shadow-sm'
+        : 'bg-transparent',
+    ]"
   >
     <div
       class="absolute inset-0 bg-white opacity-0 transition-opacity duration-300"
@@ -10,7 +15,7 @@
       <div
         class="flex flex-row max-w-7xl mx-auto justify-between h-16 items-center"
       >
-        <div>
+        <div class="flex flex-row h-full space-x-2 items-center">
           <Available />
         </div>
         <div class="">
@@ -25,6 +30,7 @@
           </nav>
         </div>
         <div class="mr-2">
+          <ColorModeButton class="mr-2" />
           <NavigationIconButton
             url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
           >

@@ -81,7 +81,7 @@
                   : 'outline'
               "
               size="icon"
-              class="z-10 rounded-full shrink-0 text-foreground bg-gradient-primary flex items-center justify-center"
+              class="z-10 rounded-full shrink-0 text-white bg-gradient-primary flex items-center justify-center"
               :class="[
                 state === 'active' &&
                   'ring-2 ring-foreground ring-offset-2 ring-offset-background',
@@ -105,7 +105,7 @@
             </StepperTitle>
             <StepperDescription
               :class="[state === 'active' && 'text-primary']"
-              class="sr-only text-xs text-slate-400 transition md:not-sr-only lg:text-sm"
+              class="sr-only text-xs text-slate-700 dark:text-slate-400 transition md:not-sr-only lg:text-sm"
               v-html="step.description"
             >
             </StepperDescription>
