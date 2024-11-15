@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Background /> -->
+    <Background />
     <NavigationHeader ref="header" />
     <main class="max-w-7xl mx-auto pt-48">
       <slot />

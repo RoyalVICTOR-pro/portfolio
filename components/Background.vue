@@ -5,11 +5,11 @@
         <radialGradient id="grad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
           <stop
             offset="0%"
-            style="stop-color: rgb(239, 68, 68); stop-opacity: 0.1"
+            style="stop-color: rgb(143, 9, 9); stop-opacity: 0.1"
           />
           <stop
             offset="100%"
-            style="stop-color: rgb(220, 14, 32); stop-opacity: 0"
+            style="stop-color: rgb(233, 21, 40); stop-opacity: 0"
           />
         </radialGradient>
         <filter id="blur">
