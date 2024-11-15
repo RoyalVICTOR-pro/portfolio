@@ -1,35 +1,22 @@
 <template>
-  <Switch
-    :checked="value"
-    class="data-[state=checked]:bg-secondary data-[state=unchecked]:bg-secondary h-7 data-[state=unchecked]:p-0.5"
-    @update:checked="toggleColorMode"
-  >
-    <template #thumb>
-      <IconSun
-        v-if="isDark"
-        class="w-4 h-4 stroke-accent fill-accent ml-0.5 mt-0.5"
-      />
-      <IconMoon
-        v-else
-        class="w-4 h-4 stroke-accent fill-accent ml-0.5 mt-0.5"
-      />
-    </template>
-  </Switch>
+  <NavigationIconButton @click="toggleColorMode">
+    <IconSun
+      v-if="isDark"
+      class="pr-0.5 pt-0.5 w-5 h-5 stroke-foreground fill-foreground"
+    />
+    <IconMoon
+      v-else
+      class="pl-0.5 pt-0.5 w-4 h-4 stroke-foreground fill-foreground"
+    />
+  </NavigationIconButton>
 </template>
 
 <script setup>
 const colorMode = useColorMode()
-const isDark = computed({
-  get: () => colorMode.value === 'dark',
-  set: (value) => {
-    colorMode.preference = value ? 'dark' : 'light'
-    colorMode.value = value ? 'dark' : 'light'
-  },
-})
+const isDark = computed(() => colorMode.value === 'dark')
 
-const toggleColorMode = (value) => {
-  console.log(value)
-  const newMode = value ? 'dark' : 'light'
+const toggleColorMode = () => {
+  const newMode = isDark.value ? 'light' : 'dark'
   colorMode.preference = newMode
   colorMode.value = newMode
 

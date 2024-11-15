@@ -17,6 +17,7 @@
       >
         <div class="flex flex-row h-full space-x-2 items-center">
           <Available />
+          <ColorModeButton />
         </div>
         <div class="">
           <nav>
@@ -30,7 +31,6 @@
           </nav>
         </div>
         <div class="mr-2">
-          <ColorModeButton class="mr-2" />
           <NavigationIconButton
             url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
           >
