@@ -48,5 +48,3 @@ const isScrolled = ref(false)
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })
 </script>
-
-<style></style>
