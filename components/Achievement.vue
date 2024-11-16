@@ -2,7 +2,7 @@
   <div class="achievement">
     <NuxtLink :to="url">
       <div class="image-container">
-        <img :src="image" alt="Achievement Image" />
+        <img :src="image" alt="Achievement" />
         <div class="overlay">
           <h3 class="font-bold mb-2">{{ title }}</h3>
           <p>{{ description }}</p>
@@ -15,32 +15,29 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Achievement',
-  props: {
-    tags: {
-      type: Array,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
+<script lang="ts" setup>
+const props = defineProps({
+  tags: {
+    type: Array as PropType<string[]>,
+    required: true,
   },
-}
+  image: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  url: {
+    type: String,
+    required: true,
+  },
+})
 </script>
 
 <style scoped>

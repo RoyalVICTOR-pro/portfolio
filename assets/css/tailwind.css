@@ -52,7 +52,7 @@
 
 @layer base {
   :root {
-    --color-background: 248 236 236;
+    --color-background: 253 240 240;
     --color-foreground: 21 9 9;
 
     --color-primary-DEFAULT: 225 51 51;
@@ -91,7 +91,7 @@
     --color-primary-DEFAULT: 227 3 3;
     --color-primary-foreground: 255 255 255;
 
-    --color-secondary-DEFAULT: 49 20 20;
+    --color-secondary-DEFAULT: 73 29 29;
     --color-secondary-foreground: 255 255 255;
 
     --color-accent-DEFAULT: 255 68 84;

@@ -6,7 +6,7 @@
           class="flex flex-col aspect-square items-center justify-center p-6"
         >
           <slot />
-          <Button class="mt-4 bg-background text-foreground hover:text-white">
+          <Button class="mt-4 bg-secondary text-foreground hover:text-white">
             <NuxtLink :to="url"> Lire toute la recommandation </NuxtLink>
           </Button>
         </CardContent>

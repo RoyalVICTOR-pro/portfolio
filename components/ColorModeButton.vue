@@ -1,12 +1,9 @@
 <template>
   <NavigationIconButton @click="toggleColorMode">
-    <IconSun
-      v-if="isDark"
-      class="pr-0.5 pt-0.5 w-5 h-5 stroke-foreground fill-foreground"
-    />
+    <IconSun v-if="isDark" class="!w-6 !h-6 fill-foreground" />
     <IconMoon
       v-else
-      class="pl-0.5 pt-0.5 w-4 h-4 stroke-foreground fill-foreground"
+      class="pt-0.5 !w-5 !h-5 stroke-foreground fill-foreground"
     />
   </NavigationIconButton>
 </template>

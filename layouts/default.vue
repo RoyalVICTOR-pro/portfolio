@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="w-full">
     <Background />
     <NavigationHeader ref="header" />
-    <main class="max-w-7xl mx-auto pt-48">
+    <main class="w-full md:max-w-7xl mx-auto pt-16">
       <slot />
     </main>
     <NavigationFooter />

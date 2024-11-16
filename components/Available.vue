@@ -14,7 +14,10 @@
       <IconClock class="w-6 mr-2" />
       Bientôt disponible
     </Badge>
-    <Badge v-else class="bg-red-400 text-red-950 hover:bg-red-200">
+    <Badge
+      v-else-if="available == 'no'"
+      class="bg-red-400 text-red-950 hover:bg-red-200"
+    >
       <IconClose class="w-5 mr-2" />
       Indisponible
     </Badge>

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4"
     :class="[
       isScrolled
         ? 'bg-background/80 backdrop-blur-md shadow-sm'
@@ -30,18 +30,18 @@
             </ul>
           </nav>
         </div>
-        <div class="mr-2">
-          <NavigationIconButton
+        <div>
+          <NavigationIconLink
             url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
           >
             <IconLinkedIn />
-          </NavigationIconButton>
-          <NavigationIconButton url="https://github.com/RoyalVICTOR-pro">
+          </NavigationIconLink>
+          <NavigationIconLink url="https://github.com/RoyalVICTOR-pro">
             <IconGithub />
-          </NavigationIconButton>
-          <NavigationIconButton url="mailto:royal.victor.pro@gmail.com">
+          </NavigationIconLink>
+          <NavigationIconLink url="mailto:royal.victor.pro@gmail.com">
             <IconMail />
-          </NavigationIconButton>
+          </NavigationIconLink>
         </div>
       </div>
     </div>
