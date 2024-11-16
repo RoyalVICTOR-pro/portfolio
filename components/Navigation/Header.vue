@@ -21,13 +21,7 @@
         </div>
         <div class="">
           <nav>
-            <ul class="flex flex-row space-x-6">
-              <li><a href="#">Accueil</a></li>
-              <li><a href="#">Projets</a></li>
-              <li><a href="#">Recommandations</a></li>
-              <li><a href="#">Perso</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
+            <NavigationMenu className="flex flex-row space-x-6" />
           </nav>
         </div>
         <div>
