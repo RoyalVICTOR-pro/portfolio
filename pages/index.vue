@@ -286,7 +286,7 @@
 <script lang="ts" setup>
 import { ChevronsRight, Circle, Dot } from 'lucide-vue-next'
 
-const { isMobile } = useIsMobile()
+const isMobile = useIsMobile()
 const techMoreIsOpen = ref(false)
 const activeId = ref('accueil')
 

@@ -14,7 +14,5 @@ export const useIsMobile = () => {
     })
   })
 
-  return {
-    isMobile: readonly(isMobile),
-  }
+  return readonly(isMobile)
 }

@@ -1,5 +1,6 @@
 <template>
   <header
+    v-if="!isMobile"
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4"
     :class="[
       isScrolled
@@ -15,8 +16,8 @@
       <div
         class="flex flex-row max-w-7xl mx-auto justify-between h-16 items-center"
       >
-        <div class="flex flex-row h-full space-x-2 items-center">
-          <Available />
+        <div class="flex flex-row h-full lg:space-x-2 items-center">
+          <Available class="hidden lg:block" />
           <ColorModeButton />
         </div>
         <div class="">
@@ -44,6 +45,7 @@
 
 <script lang="ts" setup>
 const isScrolled = ref(false)
+const isMobile = useIsMobile()
 
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })
