@@ -6,7 +6,7 @@
       <div>
         <p>&copy; 2024 Royal VICTOR</p>
       </div>
-      <div>
+      <div v-if="!isMobile">
         <NavigationIconLink
           url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
         >
@@ -23,6 +23,8 @@
   </footer>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const isMobile = useIsMobile()
+</script>
 
 <style></style>

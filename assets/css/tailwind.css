@@ -85,13 +85,13 @@
   }
 
   .dark {
-    --color-background: 25 14 14;
+    --color-background: 24 24 27;
     --color-foreground: 235 232 232;
 
     --color-primary-DEFAULT: 227 3 3;
     --color-primary-foreground: 255 255 255;
 
-    --color-secondary-DEFAULT: 73 29 29;
+    --color-secondary-DEFAULT: 39 39 42;
     --color-secondary-foreground: 255 255 255;
 
     --color-accent-DEFAULT: 255 68 84;

@@ -41,12 +41,74 @@
       </div>
     </div>
   </header>
+  <header
+    v-else
+    class="fixed bottom-4 right-4 z-50 transition-all duration-300"
+  >
+    <Sheet>
+      <SheetTrigger>
+        <div class="bg-gradient-primary p-2 text-white rounded-sm">
+          <IconBurger />
+        </div>
+      </SheetTrigger>
+      <SheetContent
+        side="right"
+        :closeButton="false"
+        class="max-w-[90vw] sm:max-w-[90vw] border-none [&>button:has(svg.lucide-xicon)]:hidden bg-zinc-900"
+      >
+        <SheetHeader class="h-full">
+          <SheetDescription class="flex flex-col space-y-6 h-full">
+            <div class="flex flex-col h-full justify-between items-end">
+              <Available />
+              <div>
+                <NavigationMenu
+                  className="flex flex-col space-y-6 items-end text-xl"
+                />
+                <div
+                  class="flex flex-row space-x-4 items-center justify-end mt-12"
+                >
+                  <ColorModeButton class="fill-primary stroke-primary" />
+                  <NavigationIconLink url="https://github.com/RoyalVICTOR-pro">
+                    <IconGithub />
+                  </NavigationIconLink>
+                  <NavigationIconLink
+                    url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
+                  >
+                    <IconLinkedIn />
+                  </NavigationIconLink>
+                  <NavigationIconLink url="mailto:royal.victor.pro@gmail.com">
+                    <IconMail />
+                  </NavigationIconLink>
+                  <div>
+                    <SheetClose as-child>
+                      <IconClose />
+                    </SheetClose>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  </header>
 </template>
 
 <script lang="ts" setup>
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from '@/components/ui/sheet'
+
 const isScrolled = ref(false)
 const isMobile = useIsMobile()
 
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })
 </script>
+
+<style scoped></style>

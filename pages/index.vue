@@ -19,7 +19,7 @@
           </h2>
         </InspiraBlurReveal>
       </div>
-      <h3 class="font-heading font-light ml-1 mb-12 text-xl md:text-2xl">
+      <h3 class="font-heading font-light ml-1 mb-12 text-xl md:text-2xl pr-3">
         "J'aime combiner technique et vision métier pour des solutions digitales
         utiles et performantes."
       </h3>
@@ -288,7 +288,6 @@ import { ChevronsRight, Circle, Dot } from 'lucide-vue-next'
 
 const isMobile = useIsMobile()
 const techMoreIsOpen = ref(false)
-const activeId = ref('accueil')
 
 const steps = [
   {
@@ -364,7 +363,7 @@ const achievements = [
   @apply absolute left-[18px] top-[38px] block h-[105%] w-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary;
 }
 .horizontal-stepper-separator {
-  @apply absolute left-[calc(50%+20px)] right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary;
+  @apply absolute sm:left-[calc(50%+20px)] sm:right-[calc(-50%+10px)] md:left-[calc(30%+20px)] md:right-[calc(-56%)] lg:left-[calc(50%+20px)] lg:right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary;
 }
 .vertical-stepper-content {
   @apply flex flex-col gap-1;
