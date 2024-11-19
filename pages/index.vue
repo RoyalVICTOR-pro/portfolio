@@ -321,7 +321,7 @@ const steps = [
 const achievements = [
   {
     tags: ['Développeur', 'Product Owner'],
-    image: 'images/achievements/steewo.png',
+    image: 'images/achievements/thumbnails/steewo.png',
     title: 'Steewo.io',
     description:
       "MVP d'une plateforme de mise en relation entre étudiants freelances et entreprises",
@@ -329,7 +329,7 @@ const achievements = [
   },
   {
     tags: ['Product Owner', 'Scrum Master'],
-    image: 'images/achievements/lgp.png',
+    image: 'images/achievements/thumbnails/modsho-vifor.png',
     title: 'Modsho',
     description:
       'Solution de présentation commerciale modulaire online/offline',
@@ -337,7 +337,7 @@ const achievements = [
   },
   {
     tags: ['Chef de projet'],
-    image: 'images/achievements/assa-abloy.png',
+    image: 'images/achievements/thumbnails/assa-abloy-catalogue.png',
     title: 'Catalogue Produit Assa Abloy',
     description:
       "Réalisation d'un catalogue produit multi-plateforme iOS/Android/Windows connecté à un ERP métier",

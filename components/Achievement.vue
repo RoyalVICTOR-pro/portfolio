@@ -51,7 +51,7 @@ const props = defineProps({
 .image-container {
   cursor: pointer;
   width: 100%;
-  height: 75%;
+  aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
 }
@@ -73,7 +73,7 @@ const props = defineProps({
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   display: flex;
   flex-direction: column;
