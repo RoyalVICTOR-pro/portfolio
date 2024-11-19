@@ -235,7 +235,7 @@
         class="relative w-full max-w-2xl mx-auto flex flex-col md:flex-row"
       >
         <CarouselContent>
-          <CustomCarrouselItem url="/recommandations">
+          <CustomCarrouselItem url="/recommandations/#julien-laurent">
             <p class="mb-4">
               "... Royal est aussi à l'aise avec les clients qu'avec les
               développeurs. Il comprend les besoins et aide à les murir. Il sait
@@ -243,10 +243,10 @@
               jargon des programmeurs. Selon mon expérience c'est très rare et
               tellement précieux !..."
             </p>
-            <b>Julien Laurent</b>
+            <b>Julien LAURENT</b>
             <i>Lead Développeur</i>
           </CustomCarrouselItem>
-          <CustomCarrouselItem url="/recommandations">
+          <CustomCarrouselItem url="/recommandations/#stephane-guillo">
             <p class="mb-4">
               "...travailler avec lui a toujours été un plaisir. Son attitude
               positive, son professionnalisme et son sens des relations humaines
@@ -254,17 +254,17 @@
               d'échanger avec lui, ce qui nous a toujours permis de trouver des
               solutions à des problèmes complexes..."
             </p>
-            <b>Stéphane Guillo</b>
+            <b>Stéphane GUILLO</b>
             <i>Directeur opérationnel</i>
           </CustomCarrouselItem>
-          <CustomCarrouselItem url="/recommandations">
+          <CustomCarrouselItem url="/recommandations/#anne-didelet">
             <p class="mb-4">
               "Partager des rendez-vous d'avant vente avec Royal a toujours été
               un grand plus pour le closing des dossiers digitaux : relation
               commerciale et contact client innés, rôle de product owner et
               chargé d'étude digitale rassurant pour les clients..."
             </p>
-            <b>Anne Didelet</b>
+            <b>Anne DIDELET</b>
             <i>Directrice de clientèle</i>
           </CustomCarrouselItem>
         </CarouselContent>
