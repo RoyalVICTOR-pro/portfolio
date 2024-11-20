@@ -1,19 +1,23 @@
 <template>
-  <h1 class="font-heading md:mt-28 mb-12 text-center text-2xl">
+  <h1
+    v-if="!submitStatus.success"
+    class="font-heading md:mt-28 mb-12 text-center text-2xl"
+  >
     N'hésitez pas à me contacter !
   </h1>
 
   <div
     v-if="submitStatus.success"
-    class="text-center space-y-4 mb-28 md:w-1/2 mx-auto"
+    class="text-center space-y-28 mb-28 md:w-1/2 mx-auto"
   >
     <h2
-      class="text-xl font-semibold bg-green-300 text-green-900 p-4 rounded-md text-center"
+      class="text-md font-semibold md:mt-28 mb-12 bg-green-300 text-green-900 p-2 rounded-md text-center"
     >
       Message envoyé avec succès !
     </h2>
-    <p>
-      Merci de m'avoir contacté. Je vous répondrai dans les plus brefs délais.
+    <p class="text-xl">
+      Merci de m'avoir contacté.<br />Je vous recontacte dans les plus brefs
+      délais.
     </p>
     <Button @click="resetForm" class="mt-4">
       Envoyer un nouveau message
@@ -91,7 +95,7 @@
 
     <Button
       type="submit"
-      class="w-full mt-12 bg-gradient-primary"
+      class="w-full text-md mt-12 bg-gradient-primary text-white"
       :disabled="submitStatus.loading"
     >
       {{ submitStatus.loading ? 'Envoi en cours...' : 'Envoyer' }}
@@ -170,12 +174,12 @@ const onSubmit = form.handleSubmit(async (values) => {
 })
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .input-style {
   @apply border-foreground/40;
+}
 
-  &::placeholder {
-    @apply text-foreground/40;
-  }
+.input-style::placeholder {
+  @apply text-foreground/40;
 }
 </style>

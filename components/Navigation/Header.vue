@@ -26,17 +26,7 @@
           </nav>
         </div>
         <div>
-          <NavigationIconLink
-            url="https://www.linkedin.com/in/royal-victor-developpeur-fullstack-chef-de-projet"
-          >
-            <IconLinkedIn />
-          </NavigationIconLink>
-          <NavigationIconLink url="https://github.com/RoyalVICTOR-pro">
-            <IconGithub />
-          </NavigationIconLink>
-          <NavigationIconLink url="mailto:royal.victor.pro@gmail.com">
-            <IconMail />
-          </NavigationIconLink>
+          <NavigationIconButtonsSet />
         </div>
       </div>
     </div>

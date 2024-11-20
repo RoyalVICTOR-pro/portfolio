@@ -12,8 +12,8 @@ export default defineEventHandler(async (event) => {
     })
 
     const messageData = {
-      from: 'royal.victor.pro@gmail.com',
-      to: 'royal.victor.pro@gmail.com',
+      from: process.env.SENDER_EMAIL as string,
+      to: process.env.RECEIVER_EMAIL as string,
       subject: 'Nouveau Contact du Portfolio',
       text: `
         Nom: ${body.name}
