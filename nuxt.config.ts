@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxt/image',
     '@vueuse/motion/nuxt',
+    '@nuxtjs/i18n',
+    'nuxt-zod-i18n',
   ],
   colorMode: {
     preference: 'dark',
@@ -31,5 +33,16 @@ export default defineNuxtConfig({
     public: {
       available: '',
     },
+  },
+  i18n: {
+    defaultDirection: 'ltr',
+    defaultLocale: 'fr-FR',
+    langDir: 'locales',
+    locales: [
+      {
+        code: 'fr-FR',
+        file: 'fr.json',
+      },
+    ],
   },
 })
