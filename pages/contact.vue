@@ -106,22 +106,7 @@
 <script lang="ts" setup>
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-
-import * as z from 'zod'
-
-const formSchema = toTypedSchema(
-  z.object({
-    name: z.string().min(2).max(50),
-    email: z.string().email(),
-    phone: z
-      .string()
-      .regex(/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/, {
-        message: 'Numéro invalide',
-      })
-      .optional(),
-    message: z.string().min(10),
-  })
-)
+import { contactSchema } from '~/schemas/contact.schema'
 
 const submitStatus = ref({
   loading: false,
@@ -130,7 +115,7 @@ const submitStatus = ref({
 })
 
 const form = useForm({
-  validationSchema: formSchema,
+  validationSchema: toTypedSchema(contactSchema),
   initialValues: {
     name: '',
     email: '',
@@ -159,7 +144,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     })
 
     if (error.value) {
-      throw new Error(error.value?.data?.message || 'Une erreur est survenue')
+      throw new Error(error.value.data?.message || 'Une erreur est survenue')
     }
 
     submitStatus.value.success = true
