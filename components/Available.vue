@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-2">
+  <div class="mt-1">
     <Badge
       v-if="available == 'yes'"
       class="bg-green-400 text-green-950 hover:bg-green-200"
