@@ -1,4 +1,4 @@
-import { contactSchema, type ContactData } from '~/schemas/contact.schema'
+import { contactSchema } from '~/schemas/contact.schema'
 import { contactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
@@ -7,30 +7,36 @@ export default defineEventHandler(async (event) => {
     const validationResult = contactSchema.safeParse(body)
 
     if (!validationResult.success) {
-      throw createError({
-        statusCode: 400,
-        message: 'Données invalides',
-        data: validationResult.error.errors,
-      })
-    }
-
-    await contactService.newContact(validationResult.data)
-    return { success: true }
-  } catch (error) {
-    console.error('Erreur lors du traitement de la requête:', error)
-
-    if (error && typeof error === 'object' && 'statusCode' in error) {
-      if (error.statusCode === 400) {
-        throw error
+      return {
+        success: false,
+        error: {
+          code: 'VALIDATION_ERROR',
+          message: 'Données invalides',
+          details: validationResult.error.errors,
+        },
+        status: 422,
       }
     }
 
-    throw createError({
-      statusCode: 500,
-      message:
-        error instanceof Error
-          ? error.message
-          : "Une erreur est survenue lors de l'envoi du message.",
-    })
+    await contactService.newContact(validationResult.data)
+
+    return {
+      success: true,
+      status: 200,
+    }
+  } catch (error) {
+    console.error('Erreur lors du traitement de la requête:', error)
+
+    return {
+      success: false,
+      error: {
+        code: 'INTERNAL_ERROR',
+        message:
+          error instanceof Error
+            ? error.message
+            : "Une erreur est survenue lors de l'envoi du message",
+      },
+      status: 500,
+    }
   }
 })

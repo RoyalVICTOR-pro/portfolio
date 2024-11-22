@@ -15,20 +15,9 @@ const supabase = createClient(
 export async function insertData<T extends Record<string, any>>(
   table: string,
   data: T
-): Promise<T | null> {
+) {
   try {
-    const { data: insertedData, error } = await supabase
-      .from(table)
-      .insert(data)
-      .select()
-      .single()
-
-    if (error) {
-      console.error(`Erreur lors de l'insertion dans ${table}:`, error)
-      throw error
-    }
-
-    return insertedData as T
+    await supabase.from(table).insert(data)
   } catch (error) {
     console.error(`Erreur lors de l'insertion dans ${table}:`, error)
     return null

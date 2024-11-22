@@ -138,13 +138,41 @@ const onSubmit = form.handleSubmit(async (values) => {
   submitStatus.value.error = ''
 
   try {
-    const { error } = await useFetch('/api/contact', {
+    const { data } = await useFetch<{
+      success: boolean
+      error?: {
+        code: string
+        message: string
+        details: Array<{ path: string[]; message: string }>
+      }
+      status: number
+    }>('/api/contact', {
       method: 'POST',
       body: values,
     })
 
-    if (error.value) {
-      throw new Error(error.value.data?.message || 'Une erreur est survenue')
+    if (!data.value?.success) {
+      if (data.value?.error?.code === 'VALIDATION_ERROR') {
+        // On exploite les détails des erreurs de validation
+        const validationErrors = data.value.error.details
+          .map((err) => err.message)
+          .join('\n')
+        submitStatus.value.error = validationErrors
+
+        // On peut aussi mettre à jour les erreurs dans le formulaire
+        data.value.error.details.forEach((err) => {
+          const fieldName = err.path[0] as
+            | 'name'
+            | 'email'
+            | 'message'
+            | 'phone'
+          form.setFieldError(fieldName, err.message)
+        })
+      } else {
+        submitStatus.value.error =
+          data.value?.error?.message || 'Une erreur est survenue'
+      }
+      return
     }
 
     submitStatus.value.success = true
