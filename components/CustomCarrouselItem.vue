@@ -6,9 +6,11 @@
           class="flex flex-col aspect-square items-center justify-center p-6"
         >
           <slot />
-          <Button class="mt-4 bg-secondary text-foreground hover:text-white">
-            <NuxtLink :to="url"> Lire toute la recommandation </NuxtLink>
-          </Button>
+          <NuxtLink :to="url">
+            <Button class="mt-4 bg-secondary text-foreground hover:text-white">
+              Lire toute la recommandation
+            </Button>
+          </NuxtLink>
         </CardContent>
       </Card>
     </div>

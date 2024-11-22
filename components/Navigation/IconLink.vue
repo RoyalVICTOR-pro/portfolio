@@ -1,12 +1,12 @@
 <template>
-  <Button
-    variant="ghost"
-    class="text-accent hover:bg-primary/20 hover:text-primary button-icon-large px-2 py-2"
-  >
-    <NuxtLink :to="url" :target="target">
+  <NuxtLink :to="url" :target="target">
+    <Button
+      variant="ghost"
+      class="text-accent hover:bg-primary/20 hover:text-primary button-icon-large px-2 py-2"
+    >
       <slot />
-    </NuxtLink>
-  </Button>
+    </Button>
+  </NuxtLink>
 </template>
 
 <script lang="ts" setup>

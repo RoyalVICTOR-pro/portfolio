@@ -8,9 +8,13 @@
           Un&nbsp;projet&nbsp;? Une&nbsp;mission&nbsp;?
           Une&nbsp;opportunité&nbsp;?
         </h4>
-        <Button class="bg-gradient-primary text-white ml-6 text-md">
-          <NuxtLink to="/contact"> Contactez-moi </NuxtLink>
-        </Button>
+        <NuxtLink to="/contact">
+          <Button
+            class="bg-gradient-primary hover:bg-gradient-accent text-white ml-6 text-md"
+          >
+            Contactez-moi
+          </Button>
+        </NuxtLink>
       </Card>
     </section>
   </ScrollReveal>

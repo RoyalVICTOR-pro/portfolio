@@ -220,9 +220,13 @@
           class="w-1/3"
         />
       </div>
-      <Button class="bg-gradient-primary text-white mt-8">
-        <NuxtLink to="/projets"> Voir plus </NuxtLink>
-      </Button>
+      <NuxtLink to="/projets">
+        <Button
+          class="bg-gradient-primary text-white mt-8 hover:bg-gradient-accent"
+        >
+          Voir plus
+        </Button>
+      </NuxtLink>
     </section>
   </ScrollReveal>
   <ScrollReveal>
