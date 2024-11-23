@@ -138,7 +138,7 @@ export const projects: Project[] = [
     id: 'fouedajs',
     tags: ['Développeur'],
     image: 'images/achievements/thumbnails/fouedajs.png',
-    title: 'Fouedajs',
+    title: 'Foued AJS',
     description: "Site Flash de promotion d'un artiste",
     url: '/projets/fouedajs',
     featured: false,
