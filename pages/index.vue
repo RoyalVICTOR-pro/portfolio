@@ -210,13 +210,9 @@
         class="flex flex-col md:flex-row justify-around mt-12 gap-8 md:gap-2 px-4"
       >
         <Achievement
-          v-for="achievement in achievements"
-          :key="achievement.title"
-          :tags="achievement.tags"
-          :image="achievement.image"
-          :title="achievement.title"
-          :description="achievement.description"
-          :url="achievement.url"
+          v-for="project in featuredProjects"
+          :key="project.id"
+          v-bind="project"
           class="w-1/3"
         />
       </div>
@@ -322,32 +318,7 @@ const steps = [
   },
 ]
 
-const achievements = [
-  {
-    tags: ['Développeur', 'Product Owner'],
-    image: 'images/achievements/thumbnails/steewo.png',
-    title: 'Steewo.io',
-    description:
-      "MVP d'une plateforme de mise en relation entre étudiants freelances et entreprises",
-    url: 'https://royalvictor.fr',
-  },
-  {
-    tags: ['Product Owner', 'Scrum Master'],
-    image: 'images/achievements/thumbnails/modsho-vifor.png',
-    title: 'Modsho',
-    description:
-      'Solution de présentation commerciale modulaire online/offline',
-    url: 'https://royalvictor.fr',
-  },
-  {
-    tags: ['Chef de projet'],
-    image: 'images/achievements/thumbnails/assa-abloy-catalogue.png',
-    title: 'Catalogue Produit Assa Abloy',
-    description:
-      "Réalisation d'un catalogue produit multi-plateforme iOS/Android/Windows connecté à un ERP métier",
-    url: 'https://royalvictor.fr',
-  },
-]
+const { featuredProjects } = useProjects()
 </script>
 
 <style scoped>
