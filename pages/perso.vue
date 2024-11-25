@@ -16,7 +16,6 @@
       </div>
     </div>
   </div>
-  <CallToAction />
 </template>
 
 <script lang="ts" setup>

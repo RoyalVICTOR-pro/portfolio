@@ -280,7 +280,6 @@
       </Carousel>
     </section>
   </ScrollReveal>
-  <CallToAction />
 </template>
 
 <script lang="ts" setup>

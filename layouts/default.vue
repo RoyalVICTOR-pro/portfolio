@@ -5,6 +5,7 @@
     <main class="w-full md:max-w-7xl mx-auto pt-16">
       <slot />
     </main>
+    <CallToAction class="md:max-w-7xl mx-auto" />
     <NavigationFooter />
   </div>
 </template>
