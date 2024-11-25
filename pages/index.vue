@@ -216,7 +216,7 @@
           class="w-1/3"
         />
       </div>
-      <NuxtLink to="/projets">
+      <NuxtLink to="/projets" class="mt-12">
         <Button
           class="bg-gradient-primary text-white mt-8 hover:bg-gradient-accent"
         >
