@@ -2,6 +2,7 @@ import { projects, AVAILABLE_TAGS } from '~/data/projectsData'
 
 export function useProjects() {
   const selectedTag = ref<string | null>(null)
+  const isVisible = ref(true)
 
   const filteredProjects = computed(() => {
     if (!selectedTag.value) return projects
@@ -15,8 +16,11 @@ export function useProjects() {
     projects.filter((project) => project.featured)
   )
 
-  const selectTag = (tag: string | null) => {
+  const selectTag = async (tag: string | null) => {
+    isVisible.value = false
+    await new Promise((resolve) => setTimeout(resolve, 200))
     selectedTag.value = tag
+    isVisible.value = true
   }
 
   return {
@@ -24,6 +28,7 @@ export function useProjects() {
     filteredProjects,
     featuredProjects,
     selectedTag,
+    isVisible,
     availableTags: AVAILABLE_TAGS,
     selectTag,
   }

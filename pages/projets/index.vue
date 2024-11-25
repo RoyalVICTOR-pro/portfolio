@@ -31,17 +31,20 @@
     >
       <Achievement
         v-for="project in filteredProjects"
-        :key="project.id"
+        :key="`${project.id}-${selectedTag || 'all'}`"
         v-bind="project"
-        class="w-full"
+        class="achievement"
+        :class="{ 'achievement-visible': isVisible }"
       />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-const { filteredProjects, selectedTag, availableTags, selectTag } =
+const { filteredProjects, selectedTag, availableTags, selectTag, isVisible } =
   useProjects()
+
+// Nous n'avons plus besoin de handleTagSelect ici car il est géré dans le composable
 </script>
 
 <style scoped>
@@ -53,5 +56,15 @@ const { filteredProjects, selectedTag, availableTags, selectTag } =
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.achievement {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.achievement-visible {
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 </style>
