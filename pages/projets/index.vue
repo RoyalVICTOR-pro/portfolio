@@ -41,6 +41,17 @@
 </template>
 
 <script lang="ts" setup>
+useHead({
+  title: 'Projets',
+  meta: [
+    {
+      name: 'description',
+      content:
+        "Voici une sélection de réalisations parmi les +500 projets auxquels j'ai participé dans divers secteurs",
+    },
+  ],
+})
+
 const { filteredProjects, selectedTag, availableTags, selectTag, isVisible } =
   useProjects()
 

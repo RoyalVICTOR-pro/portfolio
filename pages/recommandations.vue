@@ -17,6 +17,16 @@
 </template>
 
 <script lang="ts" setup>
+useHead({
+  title: 'Recommandations',
+  meta: [
+    {
+      name: 'description',
+      content: 'Quelques recommandations de mes collègues',
+    },
+  ],
+})
+
 const recommandations = [
   {
     anchor: 'stephane-guillo',

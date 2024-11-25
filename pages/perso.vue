@@ -19,6 +19,11 @@
 </template>
 
 <script lang="ts" setup>
+useHead({
+  title: 'Plus sur moi',
+  meta: [{ name: 'description', content: 'Quelques bribes de moi...' }],
+})
+
 const personalGallery = [
   {
     image: 'images/personal/danse.png',

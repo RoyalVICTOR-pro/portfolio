@@ -28,6 +28,16 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: 'Contact',
+  meta: [
+    {
+      name: 'description',
+      content: "N'hésitez pas à me contacter !",
+    },
+  ],
+})
+
 const { submitStatus, resetForm } = useContactForm()
 </script>
 
