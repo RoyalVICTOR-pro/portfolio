@@ -4,14 +4,15 @@
   </h1>
   <div class="container mx-auto mb-28">
     <div class="flex flex-col gap-12 border-secondary">
-      <RecommandationCard
-        v-for="item in recommandations"
-        :key="item.name"
-        :name="item.name"
-        :position="item.position"
-        :text="item.text"
-        :anchor="item.anchor"
-      />
+      <ScrollReveal v-for="item in recommandations">
+        <RecommandationCard
+          :key="item.name"
+          :name="item.name"
+          :position="item.position"
+          :text="item.text"
+          :anchor="item.anchor"
+        />
+      </ScrollReveal>
     </div>
   </div>
 </template>
