@@ -1,7 +1,7 @@
 export interface Project {
   id: string
   tags: string[]
-  image: string
+  mainImage: string
   title: string
   description: string
   url: string
@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     id: 'steewo',
     tags: ['Développeur', 'Product Owner'],
-    image: 'images/achievements/thumbnails/steewo.png',
+    mainImage: 'images/achievements/thumbnails/steewo.png',
     title: 'Steewo.io',
     description:
       "MVP d'une plateforme de mise en relation entre étudiants freelances et entreprises",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     id: 'modsho',
     tags: ['Product Owner', 'Scrum Master'],
-    image: 'images/achievements/thumbnails/modsho-vifor.png',
+    mainImage: 'images/achievements/thumbnails/modsho-vifor.png',
     title: 'Modsho',
     description:
       'Solution de présentation commerciale modulaire online/offline',
@@ -32,7 +32,7 @@ export const projects: Project[] = [
   {
     id: 'yvan-bonet',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/yvan-bonet.png',
+    mainImage: 'images/achievements/thumbnails/yvan-bonet.png',
     title: 'Cabinet Avocat',
     description: "Site de présentation d'un cabinet d'avocat",
     url: '/projets/yvan-bonet',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
   {
     id: 'barriere',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/barriere.png',
+    mainImage: 'images/achievements/thumbnails/barriere.png',
     title: 'Barrière',
     description: "Script récursif d'extraction de données",
     url: '/projets/barriere',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
   {
     id: 'assa-abloy-catalogue',
     tags: ['Chef de projet'],
-    image: 'images/achievements/thumbnails/assa-abloy-catalogue.png',
+    mainImage: 'images/achievements/thumbnails/assa-abloy-catalogue.png',
     title: 'Catalogue Produit Assa Abloy',
     description:
       "Réalisation d'un catalogue produit multi-plateforme iOS/Android/Windows connecté à un ERP métier",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
   {
     id: 'lgp-plan',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/lgp-plan.png',
+    mainImage: 'images/achievements/thumbnails/lgp-plan.png',
     title: 'Lille Grand Palais Plan',
     description:
       "Développement d'un plan interactif au sein de l'application Modsho LGP",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     id: 'keep-your-time',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/keep-your-time.png',
+    mainImage: 'images/achievements/thumbnails/keep-your-time.png',
     title: 'Keep Your Time',
     description:
       'Application iPad de gestion du temps pour enfants (Side-project)',
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     id: 'adhika',
     tags: ['Développeur', 'Chef de projet'],
-    image: 'images/achievements/thumbnails/adhika.png',
+    mainImage: 'images/achievements/thumbnails/adhika.png',
     title: 'Adhika',
     description: "Site de promotion de biens immobiliers d'entreprise",
     url: '/projets/adhika',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
   {
     id: 'iseo',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/iseo.png',
+    mainImage: 'images/achievements/thumbnails/iseo.png',
     title: 'ISEO',
     description: 'Application Offline Catalogue',
     url: '/projets/iseo',
@@ -98,7 +98,7 @@ export const projects: Project[] = [
   {
     id: 'adequation',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/adequation.png',
+    mainImage: 'images/achievements/thumbnails/adequation.png',
     title: 'Emailings',
     description: "Intégration d'emailings en optimisant la délivrabilité",
     url: '/projets/adequation',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
   {
     id: 'analogway',
     tags: ['Chef de projet'],
-    image: 'images/achievements/thumbnails/analogway.png',
+    mainImage: 'images/achievements/thumbnails/analogway.png',
     title: 'Analogway',
     description: 'Refonte technique et graphique du site',
     url: '/projets/analogway',
@@ -116,7 +116,7 @@ export const projects: Project[] = [
   {
     id: 'antalis',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/antalis.png',
+    mainImage: 'images/achievements/thumbnails/antalis.png',
     title: 'Antalis',
     description:
       "Participation au développement d'une application de formation",
@@ -127,7 +127,7 @@ export const projects: Project[] = [
   {
     id: 'cicaclic',
     tags: ['Product Owner'],
-    image: 'images/achievements/thumbnails/cicaclic.png',
+    mainImage: 'images/achievements/thumbnails/cicaclic.png',
     title: 'Cicaclic',
     description:
       "Refonte technique et graphique d'une application mobile pour infirmiers",
@@ -137,7 +137,7 @@ export const projects: Project[] = [
   {
     id: 'fouedajs',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/fouedajs.png',
+    mainImage: 'images/achievements/thumbnails/fouedajs.png',
     title: 'Foued AJS',
     description: "Site Flash de promotion d'un artiste",
     url: '/projets/fouedajs',
@@ -146,7 +146,7 @@ export const projects: Project[] = [
   {
     id: 'geekwatch',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/geekwatch.png',
+    mainImage: 'images/achievements/thumbnails/geekwatch.png',
     title: 'Opération marketing',
     description: "Intégration d'une page d'opération marketing",
     url: '/projets/geekwatch',
@@ -155,7 +155,7 @@ export const projects: Project[] = [
   {
     id: 'gmf-vie',
     tags: ['Chef de projet'],
-    image: 'images/achievements/thumbnails/gmf-vie.png',
+    mainImage: 'images/achievements/thumbnails/gmf-vie.png',
     title: 'GMF Vie',
     description:
       'Application semi-connectée de formation interne sous forme de jeu',
@@ -165,7 +165,7 @@ export const projects: Project[] = [
   {
     id: 'ipsen',
     tags: ['Développeur'],
-    image: 'images/achievements/thumbnails/ipsen.png',
+    mainImage: 'images/achievements/thumbnails/ipsen.png',
     title: 'Etude Devenir IPSEN',
     description:
       "Développement d'un site de restitution de résultats d'une étude scientifique",
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   {
     id: 'modsho-es',
     tags: ['Product Owner'],
-    image: 'images/achievements/thumbnails/modsho-es.png',
+    mainImage: 'images/achievements/thumbnails/modsho-es.png',
     title: 'Modsho',
     description: 'Application de présentation commerciale modulaire',
     url: '/projets/modsho-es',
@@ -184,7 +184,7 @@ export const projects: Project[] = [
   {
     id: 'plateforme-voeux',
     tags: ['Chef de projet'],
-    image: 'images/achievements/thumbnails/plateforme-voeux.png',
+    mainImage: 'images/achievements/thumbnails/plateforme-voeux.png',
     title: 'Plateforme Voeux',
     description: "Application de gestion d'envoi de voeux de fin d'année",
     url: '/projets/plateforme-voeux',
@@ -193,7 +193,7 @@ export const projects: Project[] = [
   {
     id: 'sorepi',
     tags: ['Développeur', 'Chef de projet'],
-    image: 'images/achievements/thumbnails/sorepi.png',
+    mainImage: 'images/achievements/thumbnails/sorepi.png',
     title: 'Matériel Informatique Occasion',
     description: "Site e-commerce de matériel informatique d'occasion",
     url: '/projets/sorepi',

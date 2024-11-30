@@ -10,17 +10,17 @@
         variant="outline"
         :class="[!selectedTag ? 'bg-gradient-primary text-white' : '']"
         class="border-secondary"
-        @click="selectTag(null)"
+        @click="store.selectTag(null)"
       >
         Tous les projets
       </Button>
       <Button
-        v-for="tag in availableTags"
+        v-for="tag in store.availableTags"
         :key="tag"
         :variant="selectedTag === tag ? 'default' : 'outline'"
         :class="[selectedTag === tag ? 'bg-gradient-primary text-white' : '']"
         class="border-secondary"
-        @click="selectTag(tag)"
+        @click="store.selectTag(tag)"
       >
         {{ tag }}
       </Button>
@@ -30,17 +30,20 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-2 gap-y-12 max-w-7xl mx-auto mb-28"
     >
       <Achievement
-        v-for="project in filteredProjects"
+        v-for="project in store.filteredProjects"
         :key="`${project.id}-${selectedTag || 'all'}`"
         v-bind="project"
         class="achievement"
-        :class="{ 'achievement-visible': isVisible }"
+        :class="{ 'achievement-visible': store.isVisible }"
       />
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useProjectsStore } from '~/stores/Projects'
+
 useHead({
   title: 'Projets',
   meta: [
@@ -52,10 +55,9 @@ useHead({
   ],
 })
 
-const { filteredProjects, selectedTag, availableTags, selectTag, isVisible } =
-  useProjects()
-
-// Nous n'avons plus besoin de handleTagSelect ici car il est géré dans le composable
+const store = useProjectsStore()
+// Déstructuration réactive des propriétés du store
+const { selectedTag } = storeToRefs(store)
 </script>
 
 <style scoped>

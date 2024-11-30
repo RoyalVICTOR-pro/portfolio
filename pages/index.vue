@@ -210,7 +210,7 @@
         class="flex flex-col md:flex-row justify-around mt-12 gap-8 md:gap-2 px-4"
       >
         <Achievement
-          v-for="project in featuredProjects"
+          v-for="project in store.featuredProjects"
           :key="project.id"
           v-bind="project"
           class="w-1/3"
@@ -284,6 +284,7 @@
 
 <script lang="ts" setup>
 import { ChevronsRight, Circle, Dot } from 'lucide-vue-next'
+import { useProjectsStore } from '~/stores/Projects'
 
 const isMobile = useIsMobile()
 const techMoreIsOpen = ref(false)
@@ -317,7 +318,7 @@ const steps = [
   },
 ]
 
-const { featuredProjects } = useProjects()
+const store = useProjectsStore()
 </script>
 
 <style scoped>

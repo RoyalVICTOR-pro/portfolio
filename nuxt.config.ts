@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@vueuse/motion/nuxt',
     '@nuxtjs/i18n',
     'nuxt-zod-i18n',
+    '@pinia/nuxt',
   ],
   colorMode: {
     preference: 'dark',

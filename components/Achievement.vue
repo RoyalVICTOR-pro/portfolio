@@ -2,7 +2,7 @@
   <div class="achievement">
     <NuxtLink :to="url">
       <div class="image-container">
-        <img :src="image" alt="Achievement" />
+        <img :src="mainImage" alt="Achievement" />
         <div class="overlay">
           <h3 class="font-bold mb-2">{{ title }}</h3>
           <p>{{ description }}</p>
@@ -21,7 +21,7 @@ const props = defineProps({
     type: Array as PropType<string[]>,
     required: true,
   },
-  image: {
+  mainImage: {
     type: String,
     required: true,
   },

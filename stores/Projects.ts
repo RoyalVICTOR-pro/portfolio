@@ -1,9 +1,14 @@
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+import type { Project } from '~/data/projectsData'
 import { projects, AVAILABLE_TAGS } from '~/data/projectsData'
 
-export function useProjects() {
+export const useProjectsStore = defineStore('projects', () => {
+  // State
   const selectedTag = ref<string | null>(null)
   const isVisible = ref(true)
 
+  // Getters
   const filteredProjects = computed(() => {
     if (!selectedTag.value) return projects
 
@@ -16,6 +21,7 @@ export function useProjects() {
     projects.filter((project) => project.featured)
   )
 
+  // Actions
   const selectTag = async (tag: string | null) => {
     isVisible.value = false
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -23,13 +29,23 @@ export function useProjects() {
     isVisible.value = true
   }
 
+  const resetSelection = () => {
+    selectedTag.value = null
+    isVisible.value = true
+  }
+
   return {
-    projects,
-    filteredProjects,
-    featuredProjects,
+    // State
     selectedTag,
     isVisible,
     availableTags: AVAILABLE_TAGS,
+
+    // Getters
+    filteredProjects,
+    featuredProjects,
+
+    // Actions
     selectTag,
+    resetSelection,
   }
-}
+})

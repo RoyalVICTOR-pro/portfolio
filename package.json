@@ -14,6 +14,7 @@
     "@nuxt/ui": "^2.18.7",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "^9.1.0",
+    "@pinia/nuxt": "^0.8.0",
     "@supabase/supabase-js": "^2.46.1",
     "@vee-validate/zod": "^4.14.7",
     "@vueuse/core": "^11.2.0",
@@ -23,6 +24,7 @@
     "mailgun.js": "^10.2.3",
     "nuxt": "^3.13.2",
     "nuxt-zod-i18n": "^1.10.0",
+    "pinia": "^2.2.8",
     "radix-vue": "^1.9.8",
     "shadcn-nuxt": "^0.10.4",
     "vee-validate": "^4.14.7",
@@ -44,5 +46,8 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.6.3"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
