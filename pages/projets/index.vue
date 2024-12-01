@@ -5,7 +5,7 @@
       participé dans divers secteurs
     </h1>
 
-    <div class="flex justify-center gap-4 mb-12">
+    <div class="flex justify-center gap-4 mb-12 flex-wrap">
       <Button
         variant="outline"
         :class="[!selectedTag ? 'bg-gradient-primary text-white' : '']"
