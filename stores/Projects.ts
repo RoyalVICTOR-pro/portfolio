@@ -21,6 +21,8 @@ export const useProjectsStore = defineStore('projects', () => {
     projects.filter((project) => project.featured)
   )
 
+  const getProjectById = (id: string) => projects.find((p) => p.id === id)
+
   // Actions
   const selectTag = async (tag: string | null) => {
     isVisible.value = false
@@ -43,6 +45,7 @@ export const useProjectsStore = defineStore('projects', () => {
     // Getters
     filteredProjects,
     featuredProjects,
+    getProjectById,
 
     // Actions
     selectTag,

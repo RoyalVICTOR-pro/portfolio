@@ -40,7 +40,7 @@ export const projects: Project[] = [
     taches_realisees:
       'Conception fonctionnelle<br />Conception et choix techniques<br />Modélisation Base de données<br />Développement API<br />Développement outil backoffice',
     stack_technique:
-      'Typescript<br /><b>Back :</b> AdonisJS, NestJS, TypeORM, Nestjsx/crud, TDD, Queuing Redis, N-tiers, API Mailjet, S3...<br /><b>Front :</b> Nuxt 3, Vue 3, Composition API, Store Pinia, Tailwind CSS,<br />Tests automatisés, TDD',
+      '<b>Back :</b> AdonisJS, NestJS, TypeORM, Nestjsx/crud, TDD, Queuing Redis, N-tiers, API Mailjet, S3...<br /><br /><b>Front :</b> Nuxt 3, Vue 3, Composition API, Store Pinia, Tailwind CSS<br /><br />Typescript<br />Tests automatisés, TDD',
     contexte_professionnel: 'Freelance<br />Seul puis équipe de 2 développeurs',
   },
   {
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     contexte_client:
       'Clients variés (santé, hôtellerie, luxe, industrie, services, évènementiel...)',
     taches_realisees:
-      "Pilotage agile d'une équipe technique de 4 à 8 développeurs<br />Conception/Scénarisation des projets<br />Gestion des projets clients<br />Marketing/Communication/Développement commercial du produit<br />Déploiement via MDM (Airwatch)",
+      "Pilotage agile d'une équipe technique de 4 à 8 développeurs<br />Conception/Scénarisation des projets<br />Gestion des projets clients<br />Marketing, Communication, Développement commercial du produit<br />Déploiement via MDM (Airwatch)",
     stack_technique:
       'PHP/MySQL (Framework Laravel)<br />Angular / Ionic<br />Cordova (Tablettes iOS / Android)<br />Node Webkit (Windows Desktop)',
     contexte_professionnel: 'CDI Cbi Multimédia / Team Modsho',
@@ -270,10 +270,6 @@ export const projects: Project[] = [
     featured: false,
     date: '2021 - 2022',
     mainImage: 'images/achievements/cicaclic-01.webp',
-    moreImages: [
-      'images/achievements/cicaclic-02.webp',
-      'images/achievements/cicaclic-03.webp',
-    ],
     description_projet:
       'Refonte technique et graphique d’une application à destination des infirmiers',
     contexte_client: 'Agence partenaire Studionysos<br />Laboratoires Convatec',
@@ -329,11 +325,11 @@ export const projects: Project[] = [
     url: '/projets/gmf-vie',
     featured: false,
     date: '2016',
-    mainImage: 'images/achievements/gmf-vie-01.webp',
+    mainImage: 'images/achievements/gmf-01.webp',
     moreImages: [
-      'images/achievements/gmf-vie-02.webp',
-      'images/achievements/gmf-vie-03.webp',
-      'images/achievements/gmf-vie-04.webp',
+      'images/achievements/gmf-02.webp',
+      'images/achievements/gmf-03.webp',
+      'images/achievements/gmf-04.webp',
     ],
     description_projet: 'Application ludique de contrôle des connaissance',
     contexte_client:
@@ -368,7 +364,7 @@ export const projects: Project[] = [
   },
   {
     id: 'modsho-es',
-    tags: ['Product Owner'],
+    tags: ['Chef de projet'],
     thumbnail: 'images/achievements/thumbnails/modsho-es.png',
     title: 'Modsho',
     description: 'Application de présentation commerciale modulaire',
