@@ -4,6 +4,7 @@
       <NuxtLink
         :to="item.href"
         :class="{ 'text-gradient-primary': cleanedPath === item.href }"
+        @click="closeMobileMenu"
       >
         {{ item.label }}
       </NuxtLink>
@@ -13,6 +14,8 @@
 
 <script lang="ts" setup>
 const route = useRoute()
+const isMobile = useIsMobile()
+const emit = defineEmits(['closeMenu'])
 
 defineProps<{
   className?: string
@@ -32,4 +35,10 @@ const cleanedPath = computed(() => {
   }
   return route.path
 })
+
+const closeMobileMenu = () => {
+  if (isMobile.value) {
+    emit('closeMenu')
+  }
+}
 </script>

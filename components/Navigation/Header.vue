@@ -35,8 +35,8 @@
     v-else
     class="fixed bottom-4 right-4 z-50 transition-all duration-300"
   >
-    <Sheet>
-      <SheetTrigger>
+    <Sheet :open="isOpen">
+      <SheetTrigger @click="isOpen = true">
         <div class="bg-gradient-primary p-2 text-white rounded-sm">
           <IconBurger />
         </div>
@@ -53,6 +53,7 @@
               <div>
                 <NavigationMenu
                   className="flex flex-col space-y-6 items-end text-xl"
+                  @closeMenu="closeMobileMenu"
                 />
                 <div
                   class="flex flex-row space-x-4 items-center justify-end mt-12"
@@ -70,7 +71,7 @@
                     <IconMail />
                   </NavigationIconLink>
                   <div>
-                    <SheetClose as-child>
+                    <SheetClose @click="isOpen = false">
                       <IconClose />
                     </SheetClose>
                   </div>
@@ -96,9 +97,13 @@ import {
 
 const isScrolled = ref(false)
 const isMobile = useIsMobile()
+const isOpen = ref(false)
 
 // Exposez isScrolled pour qu'il puisse être mis à jour depuis le parent
 defineExpose({ isScrolled })
+const closeMobileMenu = () => {
+  isOpen.value = false
+}
 </script>
 
 <style scoped></style>
