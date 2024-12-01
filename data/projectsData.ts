@@ -263,7 +263,7 @@ export const projects: Project[] = [
     id: 'cicaclic',
     tags: ['Product Owner'],
     thumbnail: 'images/achievements/thumbnails/cicaclic.png',
-    title: 'Cicaclic',
+    title: "Cica'clic",
     description:
       "Refonte technique et graphique d'une application mobile pour infirmiers",
     url: '/projets/cicaclic',
