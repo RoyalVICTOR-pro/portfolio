@@ -68,7 +68,7 @@ export const projects: Project[] = [
       "Pilotage agile d'une équipe technique de 4 à 8 développeurs<br />Conception/Scénarisation des projets<br />Gestion des projets clients<br />Marketing, Communication, Développement commercial du produit<br />Déploiement via MDM (Airwatch)",
     stack_technique:
       'PHP/MySQL (Framework Laravel)<br />Angular / Ionic<br />Cordova (Tablettes iOS / Android)<br />Node Webkit (Windows Desktop)',
-    contexte_professionnel: 'CDI Cbi Multimédia / Team Modsho',
+    contexte_professionnel: 'CDI Cbi Multimédia<br />Team Modsho',
     chiffres_cles: '15 clients<br />400 utilisateurs<br />10 ans d’existence',
   },
   {
@@ -372,13 +372,14 @@ export const projects: Project[] = [
     featured: false,
     date: '2019',
     mainImage: 'images/achievements/modsho-es.webp',
-    description_projet: 'Mise en place de projet Modsho pour des clients',
-    contexte_client: 'Evènement Spectacle (Client Modsho)',
+    description_projet: 'Mise en place de projets Modsho pour des clients',
+    contexte_client:
+      'Evènement Spectacle (Client Modsho)<br />Mais également Barrière, Accor Hotels, Vachette, Lille Grand Palais...',
     taches_realisees:
       "Prise de brief<br />Conception fonctionnelle<br />Mise en place graphique et technique de l'application<br />Production des contenus<br />Tests<br />Déploiement<br />Formation",
     stack_technique:
       'Balsamiq Mockups<br />Indesign<br />HTML/CSS<br />Cordova<br />NodeWebkit',
-    contexte_professionnel: 'CDI Cbi Multimédia',
+    contexte_professionnel: 'CDI Cbi Multimédia<br />Team Modsho',
   },
   {
     id: 'plateforme-voeux',

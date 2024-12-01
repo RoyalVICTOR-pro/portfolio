@@ -7,16 +7,16 @@
       {{ currentAskedProject.description_projet }}
     </p>
     <div class="flex flex-row justify-between items-center mb-8">
-      <NuxtLink to="/projets">
+      <NuxtLink to="/projets" v-if="!isMobile">
         <Button class="bg-gradient-primary text-white hover:bg-gradient-accent">
           <&nbsp;&nbsp;&nbsp;Retour
         </Button>
       </NuxtLink>
-      <div class="tags flex flex-col md:flex-row md:items-center">
+      <div class="tags flex flex-row md:items-center">
         <span
           v-for="tag in currentAskedProject.tags"
           :key="tag"
-          class="tag md:mr-2 mb-2 md:mb-0"
+          class="tag mr-2 mb-2 md:mb-0"
           >{{ tag }}</span
         >
       </div>
@@ -70,6 +70,18 @@
         <NuxtImg :src="image" :alt="currentAskedProject.title" class="w-full" />
       </ScrollReveal>
     </div>
+    <NuxtLink to="/projets" v-if="!isMobile">
+      <Button class="bg-gradient-primary text-white hover:bg-gradient-accent">
+        <&nbsp;&nbsp;&nbsp;Retour
+      </Button>
+    </NuxtLink>
+    <div v-if="isMobile" class="fixed bottom-4 left-4 z-50">
+      <NuxtLink to="/projets">
+        <div class="bg-gradient-primary p-2 text-white rounded-sm">
+          <IconChevronDown class="rotate-90" />
+        </div>
+      </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -78,6 +90,7 @@ import { useProjectsStore } from '~/stores/Projects'
 
 const route = useRoute()
 const store = useProjectsStore()
+const isMobile = useIsMobile()
 
 const currentAskedProject = store.getProjectById(route.params.slug as string)
 
