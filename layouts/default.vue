@@ -5,13 +5,18 @@
     <main class="w-full md:max-w-7xl mx-auto pt-16">
       <slot />
     </main>
-    <CallToAction class="md:max-w-7xl mx-auto" />
+    <!-- Tout le temps sauf dans la page /contact -->
+    <CallToAction
+      class="md:max-w-7xl mx-auto"
+      v-if="route.path !== '/contact'"
+    />
     <NavigationFooter />
   </div>
 </template>
 
 <script setup>
 const colorMode = useColorMode()
+const route = useRoute()
 
 onBeforeMount(() => {
   const savedMode = useCookie('color-mode').value

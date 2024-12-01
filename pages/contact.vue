@@ -24,7 +24,7 @@
     </Button>
   </div>
 
-  <ContactForm v-else class="mb-28 md:w-1/2 mx-auto" />
+  <ContactForm v-else class="mb-28 mx-2 md:w-1/2 md:mx-auto" />
 </template>
 
 <script setup lang="ts">

@@ -56,7 +56,7 @@
           <Textarea
             placeholder="Votre message ici..."
             v-bind="componentField"
-            class="min-h-[120px] input-style"
+            class="min-h-[240px] md:min-h-[120px] input-style"
             required
           />
         </FormControl>
