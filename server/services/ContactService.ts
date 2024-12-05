@@ -5,17 +5,22 @@ import { contactSchema, type ContactData } from '~/schemas/contact.schema'
 
 export class ContactService {
   async newContact(data: IContactData) {
+    console.log('ContactService appelé avec:', data)
     try {
       const validatedData = contactSchema.parse(data)
 
       const emailText = this.formatContactMessage(validatedData)
 
+      console.log("Envoi de l'email:", emailText)
       await mailer.sendEmail({
         subject: 'Nouveau Contact du Portfolio',
         text: emailText,
       })
+      console.log('Email envoyé')
 
+      console.log('Enregistrement des données dans la base de données')
       await insertData<ContactData>('contacts', validatedData)
+      console.log('Données enregistrées')
     } catch (error) {
       console.error('Erreur dans ContactService:', error)
       throw error
