@@ -8,18 +8,21 @@ export class Mailer {
   private defaultRecipient: string
 
   constructor() {
+    const config = useRuntimeConfig()
+
     this.mailgun = new Mailgun(formData).client({
       username: 'api',
-      key: process.env.MAILGUN_API_KEY as string,
+      key: config.mailerKey,
     })
-    this.domain = process.env.MAILGUN_DOMAIN as string
-    this.defaultRecipient = process.env.RECEIVER_EMAIL as string
+    this.domain = config.mailerDomain
+    this.defaultRecipient = config.receiverEmail
   }
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
+      const config = useRuntimeConfig()
       const messageData = {
-        from: process.env.SENDER_EMAIL as string,
+        from: config.senderEmail,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,
