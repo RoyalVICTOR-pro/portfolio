@@ -12,6 +12,8 @@ export class Mailer {
     const mailgunDomain = useRuntimeConfig().mailerDomain
     const receiverEmail = useRuntimeConfig().receiverEmail
 
+    console.log('Configuration Mailer:', mailgunApiKey)
+
     this.mailgun = new Mailgun(formData).client({
       username: 'api',
       key: mailgunApiKey as string,
