@@ -9,6 +9,8 @@ export class Mailer {
 
   constructor() {
     const config = useRuntimeConfig()
+    console.log('Création du client Mailgun')
+    console.log('Clé:', config.receiverEmail)
 
     this.mailgun = new Mailgun(formData).client({
       username: 'api',
