@@ -2,6 +2,20 @@ import { contactSchema } from '~/schemas/contact.schema'
 import { contactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
+  console.log('Début du handler')
+  try {
+    const rawBody = await readRawBody(event)
+    console.log('Raw body:', rawBody)
+    const body = await readBody(event)
+    console.log('Parsed body:', body)
+    // ... reste du code
+  } catch (error) {
+    console.error('Erreur détaillée:', {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+    })
+  }
   try {
     console.log('Nouveau message de contact reçu:', event)
 
