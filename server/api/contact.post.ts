@@ -1,5 +1,5 @@
 import { contactSchema } from '~/schemas/contact.schema'
-import { contactService } from '../services/ContactService'
+import { ContactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
   console.log('Début du handler')
@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
     }
     console.log('Données validées:', validationResult.data)
 
+    const contactService = new ContactService(event)
     await contactService.newContact(validationResult.data)
 
     return {
