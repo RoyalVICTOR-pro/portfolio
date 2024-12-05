@@ -6,20 +6,26 @@ export class Mailer {
   private mailgun: any
   private domain: string
   private defaultRecipient: string
+  private config: any
 
   constructor() {
+    this.config = useRuntimeConfig()
+    console.log('Config:', this.config.mailerKey)
+    console.log('Env:', this.config.mailerDomain)
+    console.log('Env:', this.config.senderEmail)
+    console.log('Env:', this.config.receiverEmail)
     this.mailgun = new Mailgun(formData).client({
       username: 'api',
-      key: process.env.MAILGUN_API_KEY as string,
+      key: this.config.mailerKey as string,
     })
-    this.domain = process.env.MAILGUN_DOMAIN as string
-    this.defaultRecipient = process.env.RECEIVER_EMAIL as string
+    this.domain = this.config.mailerDomain as string
+    this.defaultRecipient = this.config.receiverEmail as string
   }
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
       const messageData = {
-        from: process.env.SENDER_EMAIL as string,
+        from: this.config.senderEmail as string,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,
