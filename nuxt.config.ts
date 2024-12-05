@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-zod-i18n',
     '@pinia/nuxt',
+    '@nuxthub/core',
   ],
   colorMode: {
     preference: 'dark',
