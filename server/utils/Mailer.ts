@@ -26,21 +26,20 @@ export class Mailer {
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
-      console.log('this.senderEmail', this.senderEmail)
-      console.log('type de senderEmail', typeof this.senderEmail)
       const messageData = {
-        from: this.senderEmail as string,
+        from: this.senderEmail,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,
       }
 
-      console.log('messageData', messageData)
-
       await this.mailgun.messages.create(this.domain, messageData)
       return true
     } catch (error) {
       console.error("Erreur lors de l'envoi du mail:", error)
+      console.log('this.domain', this.domain)
+      console.log('this.defaultRecipient', this.defaultRecipient)
+      console.log('this.senderEmail', this.senderEmail)
       throw new Error("Une erreur est survenue lors de l'envoi du message.")
     }
   }
