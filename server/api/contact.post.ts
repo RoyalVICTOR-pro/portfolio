@@ -1,5 +1,5 @@
 import { contactSchema } from '~/schemas/contact.schema'
-import { ContactService } from '../services/ContactService'
+// import { ContactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
   console.log('Début du handler')
@@ -22,12 +22,25 @@ export default defineEventHandler(async (event) => {
     }
     console.log('Données validées:', validationResult.data)
 
-    const contactService = new ContactService(event)
-    await contactService.newContact(validationResult.data)
+    const config = useRuntimeConfig()
+    const mailerDomain1 = useRuntimeConfig().mailerDomain
+    const mailerDomain2 = useRuntimeConfig(event).mailerDomain
+    const mailerDomain3 = process.env.NUXT_MAILGUN_DOMAIN
+    const mailerDomain4 = config.mailerDomain
+    const mailerDomain5 = config.mailgunDomain
+
+    // const contactService = new ContactService(event)
+    // await contactService.newContact(validationResult.data)
 
     return {
       success: true,
       status: 200,
+      message: `
+      Mailer Domain 1: ${mailerDomain1}
+      Mailer Domain 2: ${mailerDomain2}
+      Mailer Domain 3: ${mailerDomain3}
+      Mailer Domain 4: ${mailerDomain4}
+      Mailer Domain 5: ${mailerDomain5}`,
     }
   } catch (error) {
     console.error('Erreur lors du traitement de la requête:', error)
