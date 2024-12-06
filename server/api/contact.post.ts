@@ -1,11 +1,8 @@
 import { contactSchema } from '~/schemas/contact.schema'
-// import { ContactService } from '../services/ContactService'
+import { ContactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
-  console.log('Début du handler')
   try {
-    console.log('Nouveau message de contact reçu:', event)
-
     const body = await readBody(event)
     const validationResult = contactSchema.safeParse(body)
 
@@ -20,7 +17,6 @@ export default defineEventHandler(async (event) => {
         status: 422,
       }
     }
-    console.log('Données validées:', validationResult.data)
 
     const config = useRuntimeConfig()
     const mailerDomain1 = useRuntimeConfig().mailerDomain
@@ -29,8 +25,9 @@ export default defineEventHandler(async (event) => {
     const mailerDomain4 = config.mailerDomain
     const mailerDomain5 = config.mailgunDomain
 
-    // const contactService = new ContactService(event)
-    // await contactService.newContact(validationResult.data)
+    const contactService = new ContactService()
+    await contactService.init(event)
+    await contactService.newContact(validationResult.data)
 
     return {
       success: true,

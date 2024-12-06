@@ -4,31 +4,29 @@ import { createSupabaseClient, insertData } from '../utils/Supabase'
 import { contactSchema, type ContactData } from '~/schemas/contact.schema'
 
 export class ContactService {
-  private mailer: Mailer
+  private mailer: Mailer | undefined
   private supabase: any
 
-  constructor(event: any) {
-    this.mailer = new Mailer(event)
-    this.supabase = createSupabaseClient(event)
+  constructor() {}
+
+  async init(event: any) {
+    this.mailer = new Mailer()
+    await this.mailer.init(event)
+    // this.supabase = createSupabaseClient(event)
   }
 
   async newContact(data: IContactData) {
-    console.log('ContactService appelé avec:', data)
     try {
       const validatedData = contactSchema.parse(data)
 
       const emailText = this.formatContactMessage(validatedData)
 
-      console.log("Envoi de l'email:", emailText)
-      await this.mailer.sendEmail({
+      await this.mailer?.sendEmail({
         subject: 'Nouveau Contact du Portfolio',
         text: emailText,
       })
-      console.log('Email envoyé')
 
-      console.log('Enregistrement des données dans la base de données')
-      await insertData<ContactData>(this.supabase, 'contacts', validatedData)
-      console.log('Données enregistrées')
+      // await insertData<ContactData>(this.supabase, 'contacts', validatedData)
     } catch (error) {
       console.error('Erreur dans ContactService:', error)
       throw error
