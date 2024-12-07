@@ -4,34 +4,23 @@ import IEmailOptions from '../interfaces/IEmailOptions'
 
 export class Mailer {
   private mailgun: any
-  private domain: string | undefined
-  private defaultRecipient: string | undefined
-  private senderEmail: string | undefined
+  private domain: string
+  private defaultRecipient: string
+  private senderEmail: string
 
-  constructor() {}
-
-  async init(event: any) {
+  constructor(event: any) {
     const config = useRuntimeConfig(event)
-    const mailgunApiKey = config.mailerKey
-    const mailgunDomain = config.mailerDomain
-    const receiverEmail = config.receiverEmail
     this.senderEmail = config.senderEmail
+    this.domain = config.mailerDomain
+    this.defaultRecipient = config.receiverEmail
 
-    const mg = new Mailgun(formData)
-    this.mailgun = mg.client({
+    this.mailgun = new Mailgun(formData).client({
       username: 'api',
-      key: mailgunApiKey,
+      key: config.mailerKey,
     })
-
-    this.domain = mailgunDomain
-    this.defaultRecipient = receiverEmail
   }
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
-    if (!this.mailgun || !this.domain) {
-      throw new Error('Mailgun client not initialized. Call init() first.')
-    }
-
     try {
       const messageData = {
         from: this.senderEmail,
@@ -40,17 +29,11 @@ export class Mailer {
         text: options.text,
       }
 
-      const result = await this.mailgun.messages.create(
-        this.domain,
-        messageData
-      )
+      await this.mailgun.messages.create(this.domain, messageData)
       return true
     } catch (error) {
       console.error("Erreur lors de l'envoi du mail:", error)
-      console.log('Domain:', this.domain)
-      console.log('Recipient:', this.defaultRecipient)
-      console.log('Sender:', this.senderEmail)
-      throw error
+      throw new Error("Une erreur est survenue lors de l'envoi du message.")
     }
   }
 }

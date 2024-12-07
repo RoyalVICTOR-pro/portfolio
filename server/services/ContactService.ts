@@ -7,11 +7,12 @@ export class ContactService {
   private mailer: Mailer | undefined
   private supabase: any
 
-  constructor() {}
+  constructor(event: any) {
+    this.mailer = new Mailer(event)
+  }
 
   async init(event: any) {
-    this.mailer = new Mailer()
-    await this.mailer.init(event)
+    // await this.mailer.init()
     // this.supabase = createSupabaseClient(event)
   }
 
