@@ -3,7 +3,7 @@
     v-if="!submitStatus.success"
     class="font-heading md:mt-28 mb-12 text-center text-2xl"
   >
-    N'hésitez pas à me contacter !!
+    N'hésitez pas à me contacter !!!
   </h1>
 
   <div
