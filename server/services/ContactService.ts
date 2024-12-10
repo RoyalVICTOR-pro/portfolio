@@ -1,6 +1,6 @@
 import IContactData from '../interfaces/IContactData'
 import { Mailer } from '../utils/Mailer'
-import { createSupabaseClient, insertData } from '../utils/Supabase'
+// import { createSupabaseClient, insertData } from '../utils/Supabase'
 import { contactSchema, type ContactData } from '~/schemas/contact.schema'
 
 export class ContactService {
@@ -29,7 +29,7 @@ export class ContactService {
 
       // await insertData<ContactData>(this.supabase, 'contacts', validatedData)
     } catch (error) {
-      console.error('Erreur dans ContactService:', error)
+      return 'Erreur dans ContactService: ' + JSON.stringify(error) //
       throw error
     }
   }

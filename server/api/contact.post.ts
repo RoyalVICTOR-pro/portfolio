@@ -27,14 +27,15 @@ export default defineEventHandler(async (event) => {
     const mailerDomain2 = process.env.NUXT_MAILGUN_DOMAIN
 
     const contactService = new ContactService(event)
-    // await contactService.newContact(validationResult.data)
+    const response = await contactService.newContact(validationResult.data)
 
     return {
       success: true,
       status: 200,
       message: `
       Mailer Domain 1: ${mailerDomain1}
-      Mailer Domain 2: ${mailerDomain2}`,
+      Mailer Domain 2: ${mailerDomain2}
+      Response: ${response}`,
     }
   } catch (error) {
     console.error('Erreur lors du traitement de la requête:', error)
