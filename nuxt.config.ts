@@ -31,12 +31,6 @@ export default defineNuxtConfig({
     componentDir: './components/ui',
   },
   runtimeConfig: {
-    mailerKey: process.env.MAILGUN_API_KEY,
-    mailerDomain: process.env.MAILGUN_DOMAIN,
-    senderEmail: process.env.SENDER_EMAIL,
-    receiverEmail: process.env.RECEIVER_EMAIL,
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseKey: process.env.SUPABASE_KEY,
     public: {
       available: '',
     },
