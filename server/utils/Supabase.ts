@@ -2,12 +2,10 @@ import { createClient } from '@supabase/supabase-js'
 
 const config = useRuntimeConfig()
 
-console.log('Configuration Supabase:', config.supabaseUrl)
-
 // Configuration du client Supabase avec des types génériques
 const supabase = createClient(
-  useRuntimeConfig().supabaseUrl as string,
-  useRuntimeConfig().supabaseKey as string
+  process.env.SUPABASE_URL as string,
+  process.env.SUPABASE_KEY as string
 )
 
 /**
