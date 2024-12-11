@@ -22,12 +22,10 @@ export class ContactService {
 
       const emailText = this.formatContactMessage(validatedData)
 
-      const response = await this.mailer?.sendEmail({
+      await this.mailer?.sendEmail({
         subject: 'Nouveau Contact du Portfolio',
         text: emailText,
       })
-
-      return response
 
       // await insertData<ContactData>(this.supabase, 'contacts', validatedData)
     } catch (error) {
