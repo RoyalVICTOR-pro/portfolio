@@ -1,17 +1,9 @@
 import IContactData from '../interfaces/IContactData'
-import { Mailer } from '../utils/Mailer'
-import { createSupabaseClient, insertData } from '../utils/Supabase'
+import { mailer } from '../utils/Mailer'
+import { insertData } from '../utils/Supabase'
 import { contactSchema, type ContactData } from '~/schemas/contact.schema'
 
 export class ContactService {
-  private mailer: Mailer
-  private supabase: any
-
-  constructor(event: any) {
-    this.mailer = new Mailer(event)
-    this.supabase = createSupabaseClient(event)
-  }
-
   async newContact(data: IContactData) {
     console.log('ContactService appelé avec:', data)
     try {
@@ -20,14 +12,14 @@ export class ContactService {
       const emailText = this.formatContactMessage(validatedData)
 
       console.log("Envoi de l'email:", emailText)
-      await this.mailer.sendEmail({
+      await mailer.sendEmail({
         subject: 'Nouveau Contact du Portfolio',
         text: emailText,
       })
       console.log('Email envoyé')
 
       console.log('Enregistrement des données dans la base de données')
-      await insertData<ContactData>(this.supabase, 'contacts', validatedData)
+      await insertData<ContactData>('contacts', validatedData)
       console.log('Données enregistrées')
     } catch (error) {
       console.error('Erreur dans ContactService:', error)
@@ -44,3 +36,5 @@ export class ContactService {
     `
   }
 }
+
+export const contactService = new ContactService()

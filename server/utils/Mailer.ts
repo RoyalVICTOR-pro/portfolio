@@ -6,13 +6,11 @@ export class Mailer {
   private mailgun: any
   private domain: string
   private defaultRecipient: string
-  private senderEmail: string
 
-  constructor(event: any) {
-    const mailgunApiKey = useRuntimeConfig(event).mailerKey
-    const mailgunDomain = useRuntimeConfig(event).mailerDomain
-    const receiverEmail = useRuntimeConfig(event).receiverEmail
-    this.senderEmail = useRuntimeConfig(event).senderEmail
+  constructor() {
+    const mailgunApiKey = useRuntimeConfig().mailerKey
+    const mailgunDomain = useRuntimeConfig().mailerDomain
+    const receiverEmail = useRuntimeConfig().receiverEmail
 
     console.log('Configuration Mailer:', mailgunApiKey)
 
@@ -26,8 +24,10 @@ export class Mailer {
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
+      const senderEmail = useRuntimeConfig().senderEmail
+
       const messageData = {
-        from: this.senderEmail as string,
+        from: senderEmail as string,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,
@@ -41,3 +41,5 @@ export class Mailer {
     }
   }
 }
+
+export const mailer = new Mailer()

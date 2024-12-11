@@ -1,15 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-export function createSupabaseClient(event: any) {
-  const config = useRuntimeConfig(event)
+const config = useRuntimeConfig()
 
-  console.log('Configuration Supabase:', config.supabaseUrl)
+console.log('Configuration Supabase:', config.supabaseUrl)
 
-  return createClient(
-    config.supabaseUrl as string,
-    config.supabaseKey as string
-  )
-}
+// Configuration du client Supabase avec des types génériques
+const supabase = createClient(
+  useRuntimeConfig().supabaseUrl as string,
+  useRuntimeConfig().supabaseKey as string
+)
 
 /**
  * Utilitaire générique pour insérer des données dans une table Supabase
@@ -18,7 +17,6 @@ export function createSupabaseClient(event: any) {
  * @returns Les données insérées ou null en cas d'erreur
  */
 export async function insertData<T extends Record<string, any>>(
-  supabase: any,
   table: string,
   data: T
 ) {
