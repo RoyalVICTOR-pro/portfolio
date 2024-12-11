@@ -31,7 +31,7 @@ export class ContactService {
 
       // await insertData<ContactData>(this.supabase, 'contacts', validatedData)
     } catch (error) {
-      return 'Erreur dans ContactService : ' + JSON.stringify(error) //
+      return 'Erreur dans ContactService: ' + JSON.stringify(error) //
       throw error
     }
   }

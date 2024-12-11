@@ -32,8 +32,8 @@ export class Mailer {
       await this.mailgun.messages.create(this.domain, messageData)
       return `this.domain : ${this.domain} - messageData : ${messageData} - this.senderEmail : ${this.senderEmail} - this.defaultRecipient : ${this.defaultRecipient}`
     } catch (error) {
-      // console.error("Erreur lors de l'envoi du mail:", error)
-      throw error
+      console.error("Erreur lors de l'envoi du mail:", error)
+      throw new Error("Une erreur est survenue lors de l'envoi du message.")
     }
   }
 }
