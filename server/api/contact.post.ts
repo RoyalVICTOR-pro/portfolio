@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     const mailerDomain2 = process.env.NUXT_MAILGUN_DOMAIN
 
     const contactService = new ContactService(event)
-    // await contactService.newContact(validationResult.data)
+    await contactService.newContact(validationResult.data)
 
     return {
       success: true,
@@ -46,7 +46,7 @@ export default defineEventHandler(async (event) => {
         message:
           error instanceof Error
             ? error.message
-            : "Une erreur est survenue lors de l'envoi du message " + error,
+            : "Une erreur est survenue lors de l'envoi du message",
       },
       status: 500,
     }
