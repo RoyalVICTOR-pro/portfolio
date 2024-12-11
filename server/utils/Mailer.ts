@@ -21,18 +21,19 @@ export class Mailer {
   }
 
   async sendEmail(options: IEmailOptions): Promise<any> {
-    const messageData = {
-      from: this.senderEmail,
-      to: options.to || this.defaultRecipient,
-      subject: options.subject,
-      text: options.text,
-    }
     try {
+      const messageData = {
+        from: this.senderEmail,
+        to: options.to || this.defaultRecipient,
+        subject: options.subject,
+        text: options.text,
+      }
+
       await this.mailgun.messages.create(this.domain, messageData)
       return `this.domain : ${this.domain} - messageData : ${messageData} - this.senderEmail : ${this.senderEmail} - this.defaultRecipient : ${this.defaultRecipient}`
     } catch (error) {
       // console.error("Erreur lors de l'envoi du mail:", error)
-      throw `this.domain : ${this.domain} - messageData : ${messageData} - this.senderEmail : ${this.senderEmail} - this.defaultRecipient : ${this.defaultRecipient} - error : ${error}`
+      throw error
     }
   }
 }
