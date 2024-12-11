@@ -28,6 +28,7 @@
 // Récupérer la variable d'environnement available pour afficher la bonne couleur
 const config = useRuntimeConfig()
 const available = config.public.available
+console.log('available', available)
 </script>
 
 <style></style>

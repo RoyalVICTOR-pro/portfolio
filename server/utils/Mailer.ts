@@ -4,17 +4,17 @@ import IEmailOptions from '../interfaces/IEmailOptions'
 
 export class Mailer {
   private mailgun: any
-  private domain: string | undefined
-  private defaultRecipient: string | undefined
-  private senderEmail: string | undefined
+  private domain: string
+  private defaultRecipient: string
+  private senderEmail: string
 
-  constructor() {}
-
-  async init(event: any) {
+  constructor(event: any) {
     const mailgunApiKey = useRuntimeConfig(event).mailerKey
     const mailgunDomain = useRuntimeConfig(event).mailerDomain
     const receiverEmail = useRuntimeConfig(event).receiverEmail
     this.senderEmail = useRuntimeConfig(event).senderEmail
+
+    console.log('Configuration Mailer:', mailgunApiKey)
 
     this.mailgun = new Mailgun(formData).client({
       username: 'api',

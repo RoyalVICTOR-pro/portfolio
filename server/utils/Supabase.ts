@@ -3,6 +3,8 @@ import { createClient } from '@supabase/supabase-js'
 export function createSupabaseClient(event: any) {
   const config = useRuntimeConfig(event)
 
+  console.log('Configuration Supabase:', config.supabaseUrl)
+
   return createClient(
     config.supabaseUrl as string,
     config.supabaseKey as string
