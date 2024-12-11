@@ -26,16 +26,12 @@ export class Mailer {
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
-      console.log('this.senderEmail', this.senderEmail)
-      console.log('type de senderEmail', typeof this.senderEmail)
       const messageData = {
         from: this.senderEmail as string,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,
       }
-
-      console.log('messageData', messageData)
 
       await this.mailgun.messages.create(this.domain, messageData)
       return true
