@@ -3,8 +3,6 @@ import { contactService } from '../services/ContactService'
 
 export default defineEventHandler(async (event) => {
   try {
-    console.log('Nouveau message de contact reçu:', event)
-
     const body = await readBody(event)
     const validationResult = contactSchema.safeParse(body)
 
@@ -19,7 +17,6 @@ export default defineEventHandler(async (event) => {
         status: 422,
       }
     }
-    console.log('Données validées:', validationResult.data)
 
     await contactService.newContact(validationResult.data)
 
