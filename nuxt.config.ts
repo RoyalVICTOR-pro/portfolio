@@ -46,7 +46,4 @@ export default defineNuxtConfig({
       },
     ],
   },
-  nitro: {
-    debug: true,
-  },
 })
