@@ -11,27 +11,20 @@ export class Mailer {
   constructor() {}
 
   async init(event: any) {
-    const config = useRuntimeConfig(event)
-    const mailgunApiKey = config.mailerKey
-    const mailgunDomain = config.mailerDomain
-    const receiverEmail = config.receiverEmail
-    this.senderEmail = config.senderEmail
+    const mailgunApiKey = useRuntimeConfig(event).mailerKey
+    const mailgunDomain = useRuntimeConfig(event).mailerDomain
+    const receiverEmail = useRuntimeConfig(event).receiverEmail
+    this.senderEmail = useRuntimeConfig(event).senderEmail
 
-    const mg = new Mailgun(formData)
-    this.mailgun = mg.client({
+    this.mailgun = new Mailgun(formData).client({
       username: 'api',
-      key: mailgunApiKey,
+      key: mailgunApiKey as string,
     })
-
-    this.domain = mailgunDomain
-    this.defaultRecipient = receiverEmail
+    this.domain = mailgunDomain as string
+    this.defaultRecipient = receiverEmail as string
   }
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
-    if (!this.mailgun || !this.domain) {
-      throw new Error('Mailgun client not initialized. Call init() first.')
-    }
-
     try {
       const messageData = {
         from: this.senderEmail,
@@ -40,17 +33,14 @@ export class Mailer {
         text: options.text,
       }
 
-      const result = await this.mailgun.messages.create(
-        this.domain,
-        messageData
-      )
+      await this.mailgun.messages.create(this.domain, messageData)
       return true
     } catch (error) {
       console.error("Erreur lors de l'envoi du mail:", error)
-      console.log('Domain:', this.domain)
-      console.log('Recipient:', this.defaultRecipient)
-      console.log('Sender:', this.senderEmail)
-      throw error
+      console.log('this.domain', this.domain)
+      console.log('this.defaultRecipient', this.defaultRecipient)
+      console.log('this.senderEmail', this.senderEmail)
+      throw new Error("Une erreur est survenue lors de l'envoi du message.")
     }
   }
 }
