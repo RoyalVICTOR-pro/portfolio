@@ -2,32 +2,12 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { contactSchema } from '~/schemas/contact.schema'
 import type TContactData from '~/types/TContactData'
-// import type TSubmitStatus from '~/types/TSubmitStatus'
+import type TSubmitStatus from '~/types/TSubmitStatus'
+import type TContactApiResponse from '~/types/TContactApiResponse'
+import type TValidationError from '~/types/TValidationError'
 // import type IGenericApiResponse from '~/server/interfaces/IGenericApiResponse'
 
-interface ValidationError {
-  message: string
-  rule: string
-  field: string
-  meta: Record<string, any>
-}
-
-interface SubmitStatus {
-  loading: boolean
-  error: string
-  success: boolean
-  validationErrors: Record<string, string>
-}
-
-// Typage de la réponse API
-interface ApiResponse {
-  status: 'success' | 'error'
-  type?: 'validation' | 'server'
-  message?: string
-  errors?: ValidationError[]
-}
-
-const submitStatus = ref<SubmitStatus>({
+const submitStatus = ref<TSubmitStatus>({
   loading: false,
   error: '',
   success: false,
@@ -56,12 +36,7 @@ export function useContactForm() {
 
   const resetForm = () => {
     form.resetForm()
-    submitStatus.value = {
-      loading: false,
-      success: false,
-      error: '',
-      validationErrors: {},
-    }
+    resetSubmitStatus()
   }
 
   const submitForm = async (values: TContactData) => {
@@ -71,29 +46,25 @@ export function useContactForm() {
     const config = useRuntimeConfig()
 
     try {
-      // Notez que nous utilisons des options supplémentaires pour useFetch
-      const { data, error } = await useFetch<ApiResponse>(
+      const { data, error } = await useFetch<TContactApiResponse>(
         config.public.apiUrl + '/contacts',
         {
           method: 'POST',
           body: values,
-          // Cette option est importante pour que nous puissions accéder aux erreurs de validation
+          // Cela est important pour pouvoir accéder aux données de la réponse
           onResponseError({ response }) {
             return response._data
           },
         }
       )
 
-      // Si nous avons une réponse avec des erreurs de validation (code 422)
       if (error.value) {
-        const errorData = error.value.data as ApiResponse
+        const errorData = error.value.data as TContactApiResponse
 
         if (errorData?.type === 'validation' && errorData.errors) {
-          // Transformation du tableau d'erreurs en un objet pour un accès plus facile
-          errorData.errors.forEach((error: ValidationError) => {
+          errorData.errors.forEach((error: TValidationError) => {
             submitStatus.value.validationErrors[error.field] = error.message
 
-            // Si vous utilisez un gestionnaire de formulaire comme vee-validate ou formkit
             if (form.setFieldError) {
               form.setFieldError(
                 error.field as keyof TContactData,
