@@ -10,16 +10,16 @@ export class Mailer {
   constructor() {
     this.mailgun = new Mailgun(formData).client({
       username: 'api',
-      key: process.env.MAILGUN_API_KEY as string,
+      key: process.env.NUXT_MAILGUN_API_KEY as string,
     })
-    this.domain = process.env.MAILGUN_DOMAIN as string
-    this.defaultRecipient = process.env.RECEIVER_EMAIL as string
+    this.domain = process.env.NUXT_MAILGUN_DOMAIN as string
+    this.defaultRecipient = process.env.NUXT_RECEIVER_EMAIL as string
   }
 
   async sendEmail(options: IEmailOptions): Promise<boolean> {
     try {
       const messageData = {
-        from: process.env.SENDER_EMAIL as string,
+        from: process.env.NUXT_SENDER_EMAIL as string,
         to: options.to || this.defaultRecipient,
         subject: options.subject,
         text: options.text,

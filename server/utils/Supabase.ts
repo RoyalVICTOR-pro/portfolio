@@ -2,8 +2,8 @@ import { createClient } from '@supabase/supabase-js'
 
 // Configuration du client Supabase avec des types génériques
 const supabase = createClient(
-  process.env.SUPABASE_URL as string,
-  process.env.SUPABASE_KEY as string
+  process.env.NUXT_SUPABASE_URL as string,
+  process.env.NUXT_SUPABASE_KEY as string
 )
 
 /**
