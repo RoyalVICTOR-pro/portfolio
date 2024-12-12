@@ -1,15 +1,47 @@
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { contactSchema } from '~/schemas/contact.schema'
-import type IContactData from '~/server/interfaces/IContactData'
-import type ISubmitStatus from '~/server/interfaces/ISubmitStatus'
-import type IGenericApiResponse from '~/server/interfaces/IGenericApiResponse'
+import type TContactData from '~/types/TContactData'
+// import type TSubmitStatus from '~/types/TSubmitStatus'
+// import type IGenericApiResponse from '~/server/interfaces/IGenericApiResponse'
 
-const submitStatus = ref<ISubmitStatus>({
+interface ValidationError {
+  message: string
+  rule: string
+  field: string
+  meta: Record<string, any>
+}
+
+interface SubmitStatus {
+  loading: boolean
+  error: string
+  success: boolean
+  validationErrors: Record<string, string>
+}
+
+// Typage de la réponse API
+interface ApiResponse {
+  status: 'success' | 'error'
+  type?: 'validation' | 'server'
+  message?: string
+  errors?: ValidationError[]
+}
+
+const submitStatus = ref<SubmitStatus>({
   loading: false,
-  success: false,
   error: '',
+  success: false,
+  validationErrors: {},
 })
+
+const resetSubmitStatus = () => {
+  submitStatus.value = {
+    loading: false,
+    error: '',
+    success: false,
+    validationErrors: {},
+  }
+}
 
 export function useContactForm() {
   const form = useForm({
@@ -28,38 +60,67 @@ export function useContactForm() {
       loading: false,
       success: false,
       error: '',
+      validationErrors: {},
     }
   }
 
-  const submitForm = async (values: IContactData) => {
+  const submitForm = async (values: TContactData) => {
+    resetSubmitStatus()
     submitStatus.value.loading = true
-    submitStatus.value.error = ''
+
+    const config = useRuntimeConfig()
 
     try {
-      const { data } = await useFetch<IGenericApiResponse>('/api/contact', {
-        method: 'POST',
-        body: values,
-      })
+      // Notez que nous utilisons des options supplémentaires pour useFetch
+      const { data, error } = await useFetch<ApiResponse>(
+        config.public.apiUrl + '/contacts',
+        {
+          method: 'POST',
+          body: values,
+          // Cette option est importante pour que nous puissions accéder aux erreurs de validation
+          onResponseError({ response }) {
+            return response._data
+          },
+        }
+      )
 
-      if (!data.value?.success) {
-        if (data.value?.error?.code === 'VALIDATION_ERROR') {
-          const validationErrors =
-            data.value.error.details?.map((err) => err.message).join('\n') ?? ''
-          submitStatus.value.error = validationErrors
+      // Si nous avons une réponse avec des erreurs de validation (code 422)
+      if (error.value) {
+        const errorData = error.value.data as ApiResponse
 
-          data.value.error.details?.forEach((err) => {
-            const fieldName = err.path[0] as keyof IContactData
-            form.setFieldError(fieldName, err.message)
+        if (errorData?.type === 'validation' && errorData.errors) {
+          // Transformation du tableau d'erreurs en un objet pour un accès plus facile
+          errorData.errors.forEach((error: ValidationError) => {
+            submitStatus.value.validationErrors[error.field] = error.message
+
+            // Si vous utilisez un gestionnaire de formulaire comme vee-validate ou formkit
+            if (form.setFieldError) {
+              form.setFieldError(
+                error.field as keyof TContactData,
+                error.message
+              )
+            }
           })
           return
         }
+
+        // Pour les autres types d'erreurs
         submitStatus.value.error =
-          data.value?.error?.message || 'Une erreur est survenue'
+          errorData?.message ||
+          "Une erreur est survenue lors de l'envoi du message"
         return
       }
 
-      submitStatus.value.success = true
+      // En cas de succès
+      if (data.value?.status === 'success') {
+        submitStatus.value.success = true
+        // Réinitialisation du formulaire si nécessaire
+        if (form.resetForm) {
+          form.resetForm()
+        }
+      }
     } catch (e) {
+      console.error('Form submission error:', e)
       submitStatus.value.error =
         e instanceof Error
           ? e.message

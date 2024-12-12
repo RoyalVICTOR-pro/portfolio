@@ -33,6 +33,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       available: '',
+      apiUrl: process.env.NUXT_PUBLIC_API_URL,
     },
   },
   i18n: {
