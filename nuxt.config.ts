@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-zod-i18n',
     '@pinia/nuxt',
+    'nuxt-gtag',
   ],
   colorMode: {
     preference: 'dark',
@@ -33,7 +34,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       available: '',
-      apiUrl: process.env.NUXT_PUBLIC_API_URL,
+      apiUrl: '',
+      prodApiUrl: '',
+      env: '',
     },
   },
   i18n: {
@@ -47,7 +50,7 @@ export default defineNuxtConfig({
       },
     ],
   },
-  nitro: {
-    preset: 'node-server',
+  gtag: {
+    id: 'G-KWJWCBBR35',
   },
 })

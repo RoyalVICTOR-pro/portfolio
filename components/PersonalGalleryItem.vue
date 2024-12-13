@@ -1,7 +1,7 @@
 <template>
   <div class="gallery-item">
     <div class="image-container">
-      <img :src="image" alt="Personal Gallery Item" />
+      <NuxtImg :src="image" :alt="description" />
       <div class="overlay">
         <component :is="resolveIcon" class="w-10 h-10 mb-5 text-foreground" />
         <p v-html="description"></p>

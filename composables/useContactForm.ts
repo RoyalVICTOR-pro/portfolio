@@ -44,10 +44,14 @@ export function useContactForm() {
     submitStatus.value.loading = true
 
     const config = useRuntimeConfig()
+    const apiURL =
+      config.public.env === 'dev'
+        ? config.public.apiUrl
+        : config.public.prodApiUrl
 
     try {
       const { data, error } = await useFetch<TContactApiResponse>(
-        config.public.apiUrl + '/contacts',
+        apiURL + '/contacts',
         {
           method: 'POST',
           body: values,

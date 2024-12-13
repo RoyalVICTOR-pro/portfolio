@@ -17,7 +17,7 @@
         class="flex flex-row max-w-7xl mx-auto justify-between h-16 items-center"
       >
         <div class="flex flex-row h-full lg:space-x-2 items-center">
-          <Available class="hidden lg:block" />
+          <!-- <Available class="hidden lg:block" /> -->
           <ColorModeButton />
         </div>
         <div class="">
@@ -49,7 +49,7 @@
         <SheetHeader class="h-full">
           <SheetDescription class="flex flex-col space-y-6 h-full">
             <div class="flex flex-col h-full justify-between items-end">
-              <Available />
+              <!-- <Available /> -->
               <div>
                 <NavigationMenu
                   className="flex flex-col space-y-6 items-end text-xl"

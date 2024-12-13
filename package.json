@@ -23,6 +23,7 @@
     "lucide-vue-next": "^0.454.0",
     "mailgun.js": "^10.2.3",
     "nuxt": "^3.13.2",
+    "nuxt-gtag": "^3.0.2",
     "nuxt-zod-i18n": "^1.10.0",
     "pinia": "^2.2.8",
     "radix-vue": "^1.9.8",
