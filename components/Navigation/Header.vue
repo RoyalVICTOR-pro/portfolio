@@ -48,7 +48,7 @@
       >
         <SheetHeader class="h-full">
           <SheetDescription class="flex flex-col space-y-6 h-full">
-            <div class="flex flex-col h-full justify-between items-end">
+            <div class="flex flex-col-reverse h-full justify-between flex-end">
               <!-- <Available /> -->
               <div>
                 <NavigationMenu

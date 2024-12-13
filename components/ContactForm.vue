@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="mb-28 md:w-1/2 mx-auto">
+  <form @submit="onSubmit" class="mb-28 md:w-1/2 md:mx-auto mx-2">
     <FormField v-slot="{ componentField }" name="name">
       <FormItem class="form-field">
         <FormLabel
