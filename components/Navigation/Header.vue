@@ -44,7 +44,7 @@
       <SheetContent
         side="right"
         :closeButton="false"
-        class="max-w-[90vw] sm:max-w-[90vw] border-none [&>button:has(svg.lucide-xicon)]:hidden dark:bg-zinc-900 bg-zinc-100"
+        class="w-3/4 max-w-[90vw] sm:max-w-[90vw] border-none [&>button:has(svg.lucide-xicon)]:hidden dark:bg-zinc-900 bg-zinc-100"
       >
         <SheetHeader class="h-full">
           <SheetDescription class="flex flex-col space-y-6 h-full">
@@ -56,7 +56,7 @@
                   @closeMenu="closeMobileMenu"
                 />
                 <div
-                  class="flex flex-row space-x-4 items-center justify-end mt-12"
+                  class="flex flex-row space-x-3 items-center justify-end mt-12"
                 >
                   <ColorModeButton class="" />
                   <NavigationIconLink url="https://github.com/RoyalVICTOR-pro">
